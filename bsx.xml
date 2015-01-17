@@ -1,0 +1,11 @@
+<pmap>
+   <pdata legend="StatCounter">
+      <item value="51.3">Chrome</item>
+      <item value="21.3">Internet Explorer</item>
+      <item value="18.8">Firefox</item>
+      <item value="5.1">Safari</item>
+      <item value="2.1">Other</item>
+      <item value="1.4">Opera</item>
+   </pdata>
+...
+</pmap>

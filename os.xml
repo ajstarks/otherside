@@ -1,0 +1,996 @@
+<deck>
+	<title>The Other Side of Go</title>
+	<creator>Anthony Starks</creator>
+	<subject>Go, markup, design</subject>
+	<date>2015-01-17</date>
+	<description>This presentation describes the use of Go for programming pictures, a departure from the usual back-end view.</description>
+ 
+	<slide bg="black" fg="white">
+		<text sp="8" xp="50" yp="50"  align="center">The other side of Go</text>
+		<text sp="5" xp="50" yp="25"  align="center" color="gray">Programming Pictures</text>
+		<text sp="2" xp="50" yp="5"  align="center" color="gray">Anthony Starks</text>
+	</slide>
+	
+	<slide bg="black" fg="white">
+		<text xp="50" yp="90" sp="4" align="center">Go is great in the back end</text>
+		<image name="datacenter.jpg" width="1000" height="525" xp="50" yp="50"/>
+	</slide>
+
+	<slide bg="black" fg="white">
+	<image name="cloudy1024.jpg" width="1024" height="768" xp="50" yp="50"/>
+	<text xp="50" yp="10" sp="4" align="center">But sometimes it's about the picture</text>
+	</slide>
+
+	<slide>
+		<image xp="70" yp="51" width="600" height="500" name="at.jpg"/>
+		<image xp="20" yp="50" width="485" height="500" name="picasso.png"/>
+		<text xp="20" yp="10" sp="5" align="right">Pic</text>
+		<text xp="20" yp="10" sp="5"  color="gray">asso</text>
+		<text xp="70" yp="10" sp="5" align="right">Tur</text>
+		<text xp="70" yp="10" sp="5" color="gray">ing</text>
+	</slide>
+	
+
+	<slide bg="gray" fg="white">
+		<list xp="10" yp="70" sp="5">
+			<li>API Design</li>
+			<li>Client Program Design</li>
+			<li>Visual Design and Relationships</li>
+		</list>
+	</slide>
+
+	<slide>
+		<image xp="50" yp="50" width="500" height="300" name="svgopher.png"/>
+	</slide>
+	
+	<slide>
+		<image name="svgdef.png" xp="50" yp="50" width="1024" height="768" />
+	</slide>
+	
+	<slide>
+		<text xp="15" yp="90" sp="2.5" align="center" color="gray">Element</text>
+		<text xp="40" yp="90" sp="2.5" align="center" color="gray">Arguments</text>
+		<line xp1="15" yp1="89" xp2="15" yp2="85"/>
+		<line xp1="40" yp1="89" xp2="40" yp2="85"/>
+		<text xp="15" yp="80" sp="3.5" color="rgb(127,0,0)" align="center">Rect</text>
+		<text xp="40" yp="80" sp="3.5" color="rgb(0,0,127)" align="center">(100,200,250,125)</text>
+		<text xp="5" yp="60" sp="3" type="block" font="mono" wp="70">&lt;rect x=&quot;100&quot; 
+		y=&quot;200&quot; width=&quot;250&quot; height=&quot;125&quot;/&gt;</text>
+		<rect xp="50" yp="25" wp="30" hr="50" color="black"/>
+		<text xp="35" yp="35" sp="2" align="right">(100, 200)</text>
+		<text xp="50" yp="10" sp="2" align="center">250</text>
+		<text xp="70" yp="25" sp="2" align="center">125</text>
+	</slide>
+	
+	<slide>
+		<text xp="15" yp="90" sp="2.5" align="center" color="gray">Element</text>
+		<text xp="40" yp="90" sp="2.5" align="center" color="gray">Arguments</text>
+		<text xp="75" yp="90" sp="2.5" align="center" color="gray">CSS Style</text>
+		<line xp1="15" yp1="89" xp2="15" yp2="85"/>
+		<line xp1="40" yp1="89" xp2="40" yp2="85"/>
+		<line xp1="75" yp1="89" xp2="75" yp2="85"/>
+		<text xp="15" yp="80" sp="3.5" color="rgb(127,0,0)" align="center">Rect</text>
+		<text xp="40" yp="80" sp="3.5" color="rgb(0,0,127)" align="center">(100,200,250,125,</text>
+		<text xp="75" yp="80" sp="3.5" color="rgb(127,127,127)" align="center">"fill:gray;stroke:blue")</text>
+		<text xp="5" yp="60" sp="3" type="block" font="mono" wp="70">&lt;rect x=&quot;100&quot; 
+		y=&quot;200&quot; width=&quot;250&quot; height=&quot;125&quot; style=&quot;fill:gray;stroke:blue&quot;/&gt;</text>
+		<rect xp="50" yp="25" wp="30" hr="50" color="blue"/>
+		<rect xp="50" yp="25" wp="29.5" hr="49" color="gray"/>
+		<text xp="35" yp="35" sp="2" align="right">(100, 200)</text>
+		<text xp="50" yp="10" sp="2" align="center">250</text>
+		<text xp="70" yp="25" sp="2" align="center">125</text>
+	</slide>
+	
+	<slide>
+		<text xp="15" yp="90" sp="2.5" align="center" color="gray">Element</text>
+		<text xp="40" yp="90" sp="2.5" align="center" color="gray">Arguments</text>
+		<text xp="75" yp="90" sp="2.5" align="center" color="gray">Attributes</text>
+		<line xp1="15" yp1="89" xp2="15" yp2="85"/>
+		<line xp1="40" yp1="89" xp2="40" yp2="85"/>
+		<line xp1="75" yp1="89" xp2="75" yp2="80"/>
+		<text xp="15" yp="80" sp="3.5" color="rgb(127,0,0)" align="center">Rect</text>
+		<text xp="40" yp="80" sp="3.5" color="rgb(0,0,127)" align="center">(100,200,250,125,</text>
+		<text xp="60" yp="74" sp="3.5" color="rgb(127,127,127)" align="center">`id="box"`, `fill="gray"`, `stroke="blue"`)</text>
+		<text xp="5" yp="60" sp="3" type="block" font="mono" wp="70">&lt;rect x=&quot;100&quot; 
+		y=&quot;200&quot; width=&quot;250&quot; height=&quot;125&quot; id="box" fill="gray" stroke="blue"/&gt;</text>
+		<rect xp="50" yp="25" wp="30" hr="50" color="blue"/>
+		<rect xp="50" yp="25" wp="29.5" hr="49" color="gray"/>
+		<text xp="35" yp="35" sp="2" align="right">(100, 200)</text>
+		<text xp="50" yp="10" sp="2" align="center">250</text>
+		<text xp="70" yp="25" sp="2" align="center">125</text>
+	</slide>
+	
+	<slide>
+	<image xp="50" yp="50" width="500" height="500" name="android.png"/>
+	</slide>
+	
+	<slide>
+		<text xp="28" yp="70" sp="3" align="right">Scale</text>
+		<text xp="42.5" yp="50" sp="3" align="right">Roundrect</text>
+		<text xp="57.5" yp="48" sp="3" align="center">Circle</text>
+		<text xp="40" yp="25" sp="3" >Line</text>
+		<text xp="63" yp="25" sp="3" align="center">Rect</text>
+		<text xp="75" yp="55" sp="3" align="center">Line</text>
+		<text xp="63" yp="37" sp="3" align="center">Arc</text>
+		<text xp="50" yp="65" sp="3">fill:rgb(164,198,57)</text>
+		<image xp="50" yp="50" width="500" height="500" name="android.png"/>
+	</slide>
+
+	<slide>
+		<image xp="70" yp="75" width="600" height="338" name="hw.png"/>
+	  	<text xp="4" yp="80" sp="1.6" wp="50" font="mono" file="hwsvg.go"/>
+	</slide>
+
+	<slide>
+		<image xp="75" yp="50" width="400" height="405" name="websvg-b.png"/>
+		<text xp="5" yp="96" sp="1.4" font="mono" file="websvg.go"/>
+	</slide>
+	
+	<slide>
+		<text xp="50" yp="60" sp="6" align="center">Read/Parse/Draw Pattern</text>
+	</slide>
+	
+	<slide>
+		<text xp="10" yp="80" sp="5" align="center">Data</text>
+		<text xp="10" yp="50" sp="5" align="center">Picture</text>
+		<text xp="20" yp="85" sp="2" file="thing.xml"/>
+		<image xp="50" yp="50" width="622" height="291" name="rpd-small.png"/>
+		<line xp1="10" yp1="78" xp2="10" yp2="60" sp="1" color="gray"/>
+		<polygon xc="8 10 12" yc="60 56 60" color="gray"/>
+	</slide>
+	
+	<slide>
+		<text xp="5" yp="98" sp="0.7" font="mono" file="rpd.go"/>
+		<rect xp="10" yp="90" wp="55" hp="10"  color="lightsteelblue" opacity="30"/>
+		<rect xp="10" yp="74" wp="55" hp="18" color="lightsteelblue" opacity="30"/>
+		<rect xp="10" yp="60" wp="55" hp="7"  color="lightsteelblue" opacity="30"/>
+		<rect xp="10" yp="49" wp="55" hp="13" color="lightsteelblue" opacity="30"/>
+		<rect xp="10" yp="35" wp="55" hp="12" color="lightsteelblue" opacity="30"/>
+		<rect xp="10" yp="21" wp="55" hp="15" color="lightsteelblue" opacity="30"/>
+		<rect xp="10" yp="7"  wp="55" hp="11" color="lightsteelblue" opacity="30"/>
+	
+		<text xp="40" yp="88" sp="3">Imports</text>
+		<text xp="40" yp="74" sp="3">Define the input data structures</text>
+		<text xp="40" yp="59" sp="3">Define flags and output destination</text>
+		<text xp="40" yp="48" sp="3">Read the input</text>
+		<text xp="40" yp="35" sp="3">Parse and load the data structures</text>
+		<text xp="40" yp="22" sp="3">Draw</text>
+		<text xp="40" yp="6" sp="3">Main</text>
+	</slide>
+
+	<slide>
+	      <text xp="5" yp="90" sp="4">Imports</text>
+	<text xp="5" yp="75" sp="2" font="mono">import (
+      "flag"
+      "fmt"
+      "github.com/ajstarks/svgo"
+      "io"
+      "os"
+      "encoding/xml"
+)</text>
+	</slide>
+	
+	
+	  <slide>
+	      <text xp="5" yp="90" sp="4">The main</text>
+	  	<text xp="5" yp="75" sp="2" font="mono">func main() {
+      flag.Parse()
+      for _, f := range flag.Args() {
+          canvas.Start(*width, *height)
+          dothing(f)
+          canvas.End()
+      }
+}</text>
+	  </slide>	
+
+
+	<slide>
+	<text xp="5" yp="90" sp="4">Define the input data structures</text>
+	<text xp="5" yp="20" sp="1.6" color="rgb(100,100,100)" file="thing.xml"/>
+	<text xp="5" yp="75" sp="2" font="mono">type Thing struct {
+      Top  int `xml:"top,attr"`
+      Left int `xml:"left,attr"`
+      Sep  int `xml:"sep,attr"`
+      Item []item `xml:"item"`
+}
+
+type item struct {
+      Width  int    `xml:"width,attr"`
+      Height int    `xml:"height,attr"`
+      Name   string `xml:"name,attr"`
+      Color  string `xml:"color,attr"`
+      Text   string `xml:",chardata"`
+}
+</text>
+	  </slide>
+	  
+	  <slide>
+	<text xp="5" yp="90" sp="4">Define flags and output destination</text>
+    <text xp="5" yp="75" sp="2" font="mono">var (
+      width  = flag.Int("w", 1024, "width")
+      height = flag.Int("h", 768, "height")
+      canvas = svg.New(os.Stdout)
+)</text>
+	</slide>
+
+	  
+	  <slide>
+	  	<text xp="5" yp="90" sp="4">Read the input</text>
+          <text xp="5" yp="75" sp="2" font="mono">func dothing(location string) {
+      f, err := os.Open(location)
+      if err != nil {
+          fmt.Fprintf(os.Stderr, "%v\n", err)
+          return
+      }
+      defer f.Close()
+      readthing(f)
+}
+</text>
+	  
+	  </slide>
+
+	  <slide>
+	  	<text xp="5" yp="90" sp="4">Parse and load the data structures</text>
+	  	<text xp="5" yp="75" sp="2" font="mono">func readthing(r io.Reader) {
+      var t Thing
+      if err := xml.NewDecoder(r).Decode(&amp;t); err != nil {
+          fmt.Fprintf(os.Stderr, "%v\n", err)
+          return
+      }
+      drawthing(t)
+}</text>
+	  </slide>
+	  
+	  
+	  <slide>
+	  	<text xp="5" yp="90" sp="4">Use the items of "thing" to make the picture</text>
+	  	<text xp="5" yp="75" sp="2" font="mono">func drawthing(t Thing) {
+      x := t.Left
+      y := t.Top
+      for _, v := range t.Item {
+          style := fmt.Sprintf("font-size:%dpx;fill:%s", v.Width/2, v.Color)
+          canvas.Circle(x, y, v.Height/4, "fill:"+v.Color)
+          canvas.Text(x+t.Sep, y, v.Name+":"+v.Text+"/"+v.Color, style)
+          y += v.Height
+      }
+}</text>
+	<image xp="20" yp="20" width="622" height="291" name="rpd-small.png"/>
+	  </slide>
+
+
+
+	<slide>
+	<image xp="50" yp="50" width="1024" height="768" name="bs.jpg"/>
+	</slide>
+	
+	<slide>
+	<text xp="50" yp="90" sp="3" align="center">pmap -stagger -showtitle -p -t "Browser Market Share" bs.xml</text>
+	<text xp="30" yp="82" sp="1.6" file="bsx.xml"/>
+	<image xp="50" yp="26" width="512" height="384" name="bs.png"/>
+	</slide>
+	
+	<slide>
+	<text xp="50" yp="60" sp="6" align="center">SVGo Clients</text>
+	</slide>
+	
+	<!-- Insert screenshots -->
+	
+	<slide><image xp="50" yp="50" width="1024" height="768" name="data-class.png"/></slide>
+	<slide><image xp="50" yp="50" width="1024" height="768" name="ey.png"/></slide>
+	<slide><image xp="50" yp="50" width="1024" height="768" name="ey-rr.png"/></slide>
+	<slide><image xp="50" yp="50" width="1024" height="768" name="plan2plan.png"/></slide>
+	<slide><image xp="50" yp="50" width="1024" height="768" name="timeline.png"/></slide>
+	<slide><image xp="50" yp="50" width="1024" height="768" name="quad.png"/></slide>
+	<slide><image xp="50" yp="50" width="1024" height="768" name="bg.png"/></slide>
+	<slide><image xp="50" yp="50" width="1024" height="768" name="bc.png"/></slide>
+	<slide><image xp="50" yp="50" width="1024" height="768" name="svgplot.png"/></slide>
+
+	<slide bg="black">
+		<image xp="20" yp="50"  width="300" height="541" name="lt01.png"/>
+		<image xp="50" yp="50"  width="300" height="541" name="lt02.png"/>
+		<image xp="80" yp="50"  width="300" height="541" name="lt03.png"/>
+	</slide>
+	
+	<slide bg="black">
+	<image xp="50" yp="50" width="1024" height="719" name="ar.jpg"/>
+	</slide>
+
+	<slide>
+	<text xp="5" yp="90" sp="3">f50 sunset</text>
+	<text xp="5" yp="85" sp="2" color="gray">https://api.flickr.com/services/rest/
+      ?method=flickr.photos.search
+      &amp;api_key=...
+      &amp;text=sunset
+      &amp;per_page=50
+      &amp;sort=interestingness-desc</text>
+	<text xp="5" yp="50" sp="2" color="rgb(127,0,0)" file="flickr-resp.xml"/>
+	<image xp="70" yp="75" width="483" height="300" name="sunset.png"/>
+	</slide>
+	
+	<slide>
+	<image xp="50" yp="50" width="1024" height="642" name="bv-combo.png"/>
+	</slide>
+	
+	<slide>
+		<image xp="85" yp="80" width="200" height="200" name="15.png"/>
+		<image xp="85" yp="50" width="200" height="200" name="30.png"/>
+		<image xp="85" yp="20" width="200" height="200" name="45.png"/>
+		<text xp="70" yp="80" sp="2.5" color="rgb(0,0,100)" align="center">ti = 15</text>
+		<text xp="70" yp="50" sp="2.5" color="rgb(0,0,100)" align="center">ti = 30</text>
+		<text xp="70" yp="20" sp="2.5" color="rgb(0,0,100)" align="center">ti = 45</text>
+		<text xp="5" yp="90" sp="1.5" font="mono" file="rotext.go"/>
+		<rect xp="13" yp="54" wp="12" hp="3" color="yellow" opacity="30"/>
+	</slide>
+		
+	<slide>
+		<image xp="10" yp="85" width="300" height="169" name="refcard.raw.png"/>
+		<image xp="50" yp="85" width="300" height="169" name="gradient.raw.png"/>
+		<image xp="80" yp="85" width="300" height="169" name="rotext.raw.png"/>
+		
+		<image xp="10" yp="55" width="300" height="169" name="plot.raw.png"/>
+		<image xp="50" yp="55" width="300" height="169" name="planets.raw.png"/>
+		<image xp="80" yp="55" width="300" height="169" name="image.raw.png"/>
+		
+		<image xp="10" yp="25" width="300" height="169" name="slide1.raw.png"/>
+		<image xp="50" yp="25" width="300" height="169" name="hellovg.raw.png"/>
+		<image xp="80" yp="25" width="300" height="169" name="slide4.raw.png"/>
+		
+		<text sp="5" xp="50" yp="5" align="center">openvg</text>
+
+	</slide>
+	
+	<slide>
+		<image xp="70" yp="75" width="600" height="338" name="hw.jpg"/>
+		<text xp="4" yp="80" sp="1.6" wp="50" font="mono" file="hwopenvg.go"/>
+	</slide>
+
+	<slide>
+		<text xp="10" yp="90" sp="5">Openvg Functions</text>
+		<list xp="10" yp="80" sp="2" font="mono" color="rgb(127,0,0)">
+			<li>Circle</li>
+			<li>Ellipse</li>
+			<li>Rect</li>
+			<li>Roundrect</li>
+			<li>Line</li>
+			<li>Polyline</li>
+			<li>Polygon</li>
+			<li>Arc</li>
+			<li>Qbezier</li>
+			<li>Cbezier</li>
+			<li>Image</li>
+			<li>Text</li>
+			<li>TextMid</li>
+			<li>TextEnd</li>
+		</list>
+	
+		<list xp="25" yp="80" sp="2" color="rgb(127,127,127)" font="mono">
+			<li>(x, y, r VGfloat)</li>
+			<li>(x, y, w, h VGfloat)</li>
+			<li>(x, y, w, h VGfloat)</li>
+			<li>(x, y, w, h, rw, rh VGfloat)</li>
+			<li>(x1, y1, x2, y2 VGfloat)</li>
+			<li>(x, y []VGfloat)</li>
+			<li>(x, y []VGfloat)</li>
+			<li>(x, y, w, h, sa, aext VGfloat)</li>
+			<li>(sx, sy, cx, cy, ex, ey VGfloat)</li>
+			<li>(sx, sy, cx, cy, px, py, ex, ey VGfloat)</li>
+			<li>(x, y VGfloat, w, h int, s string)</li>
+			<li>(x, y VGfloat, s string, font string, size int)</li>
+			<li>(x, y VGfloat, s string, font string, size int)</li>
+			<li>(x, y VGfloat, s string, font string, size int)</li>
+		</list>
+	</slide>
+	
+	 <slide bg="white" fg="rgb(50,50,50)">
+	<text xp="5" yp="45" sp="18">Deck</text>
+	<rect xp="75" yp="50" wp="40" hr="100" color="rgb(240,240,240)"/>
+	<rect xp="70" yp="55" wp="20" hr="56.2" color="rgb(127,0,0)"/>
+	<rect xp="80" yp="50" wp="20" hr="56.2" color="rgb(255,255,255)"/>
+	<rect xp="75" yp="45" wp="20" hr="56.2" color="rgb(127,127,127)"/>
+	<text xp="95" yp="5" sp="3" align="right">a Go package for presentations</text>
+	</slide>
+	
+	<slide bg="white" fg="rgb(50,50,50)">
+	  <text xp="95" yp="5" sp="3" align="right">Anatomy of a Deck</text>
+	  <list  xp="20" yp="90" sp="1.4" font="mono">
+	      <li>&lt;deck&gt;</li>
+	      <li>  &lt;canvas width="1024" height="768" /&gt;</li>
+	      <li>  &lt;slide bg="white" fg="black"&gt;</li>
+	      <li>      &lt;image xp="70" yp="60" width="256" height="179" name="work.png" caption="Desk"/&gt;</li>
+	      <li>      &lt;text  xp="20" yp="80" sp="3" link="http://goo.gl/Wm05Ex"&gt;Deck elements&lt;/text&gt;</li>
+	      <li>      &lt;list  xp="20" yp="70" sp="2" type="bullet"&gt;</li>
+	      <li>         &lt;li&gt;text, list, image&lt;/li&gt;</li>
+	      <li>         &lt;li&gt;line, rect, ellipse&lt;/li&gt;</li>
+	      <li>         &lt;li&gt;arc, curve, polygon&lt;/li&gt;</li>
+	      <li>      &lt;/list&gt;</li>
+	      <li>      &lt;line    xp1="20" yp1="10" xp2="30" yp2="10"/&gt;</li>
+	      <li>      &lt;rect    xp="35"  yp="10" wp="4" hr="75" color="rgb(127,0,0)"/&gt;</li>
+	      <li>      &lt;ellipse xp="45"  yp="10" wp="4" hr="75" color="rgb(0,127,0)"/&gt;</li>
+	      <li>      &lt;arc     xp="55"  yp="10" wp="4" hp="3" a1="0" a2="180" color="rgb(0,0,127)"/&gt;</li>
+	      <li>      &lt;curve   xp1="60" yp1="10" xp2="75" yp2="20" xp3="70" yp3="10" /&gt;</li>
+	      <li>      &lt;polygon xc=75 75 80" yc="8 12 10" color="rgb(0,0,127)"/&gt;</li>
+	      <li>  &lt;/slide&gt;</li>
+	      <li>&lt;/deck&gt;</li>
+	  </list>
+	  <list xp="3" yp="90" sp="1.4" color="rgb(127,0,0)" >
+	      <li>Start the deck</li>
+	      <li>Set the canvas size</li>
+	      <li>Begin a slide</li>
+	      <li>Place an image</li>
+	      <li>Draw some text</li>
+	      <li>Make a bullet list</li>
+	      <li></li>
+	      <li></li>
+	      <li></li>
+	      <li>End the list</li>
+	      <li>Draw a line</li>
+	      <li>Draw a rectangle</li>
+	      <li>Draw an ellipse</li>
+	      <li>Draw an arc</li>
+	      <li>Draw a quadratic bezier</li>
+	      <li>Draw a polygon</li>
+	      <li>End the slide</li>
+	  <li>End of the deck</li>
+	  </list>
+	</slide>
+
+	<slide bg="white" fg="black">
+	    <image xp="70" yp="60" width="256" height="179" name="work.png" caption="Desk" />
+	    <text  xp="20" yp="90" sp="3" link="http://goo.gl/Wm05Ex">Deck elements</text>
+	    <list  xp="20" yp="70" sp="2" type="bullet">
+	       <li>text, list, image</li>
+	       <li>line, rect, ellipse</li>
+	       <li>arc, curve, polygon</li>
+	    </list>
+	    <line    xp1="20" yp1="10" xp2="30" yp2="10"/>
+	    <rect    xp="35"  yp="10" wp="4" hr="75" color="rgb(127,0,0)"/>
+	    <ellipse xp="45"  yp="10" wp="4" hr="75" color="rgb(0,127,0)"/>
+	    <arc     xp="55"  yp="10" wp="4" hp="3" a1="0" a2="180" color="rgb(0,0,127)"/>
+	    <curve   xp1="60" yp1="10" xp2="75" yp2="20" xp3="70" yp3="10" />
+	    <polygon xc="75 75 80" yc="8 12 10" color="rgb(0,0,127)"/>
+	</slide>
+	
+	<slide bg="white" fg="rgb(50,50,50)">
+		<text xp="50" yp="50" sp="5" align="center">Percent Grid</text>
+		<line xp1="0" yp1="0" xp2="0" yp2="100" sp="0.1" color="blue"/>
+		<line xp1="0" yp1="0" xp2="100" yp2="0" sp="0.1" color="blue"/>
+		<line xp1="100" yp1="0" xp2="100" yp2="100" sp="0.1" color="blue"/>
+		<line xp1="10" yp1="0" xp2="10" yp2="100" sp="0.1" color="lightblue"/>
+		<text xp="10" yp="95" sp="2" color="gray" align="center">10</text>
+		<line xp1="20" yp1="0" xp2="20" yp2="100" sp="0.1" color="lightblue"/>
+		<text xp="20" yp="95" sp="2" color="gray" align="center">20</text>
+		<line xp1="30" yp1="0" xp2="30" yp2="100" sp="0.1" color="lightblue"/>
+		<text xp="30" yp="95" sp="2" color="gray" align="center">30</text>
+		<line xp1="40" yp1="0" xp2="40" yp2="100" sp="0.1" color="lightblue"/>
+		<text xp="40" yp="95" sp="2" color="gray" align="center">40</text>
+		<line xp1="50" yp1="0" xp2="50" yp2="100" sp="0.1" color="lightblue"/>
+		<text xp="50" yp="95" sp="2" color="gray" align="center">50</text>
+		<line xp1="60" yp1="0" xp2="60" yp2="100" sp="0.1" color="lightblue"/>
+		<text xp="60" yp="95" sp="2" color="gray" align="center">60</text>
+		<line xp1="70" yp1="0" xp2="70" yp2="100" sp="0.1" color="lightblue"/>
+		<text xp="70" yp="95" sp="2" color="gray" align="center">70</text>
+		<line xp1="80" yp1="0" xp2="80" yp2="100" sp="0.1" color="lightblue"/>
+		<text xp="80" yp="95" sp="2" color="gray" align="center">80</text>
+		<line xp1="90" yp1="0" xp2="90" yp2="100" sp="0.1" color="lightblue"/>
+		<text xp="90" yp="95" sp="2" color="gray" align="center">90</text>
+		<line xp1="0" yp1="100" xp2="100" yp2="100" sp="0.1" color="blue"/>
+		<line xp1="0" yp1="10" xp2="100" yp2="10" sp="0.1" color="lightblue"/>
+		<text xp="5" yp="10" sp="2" color="gray" align="center">10</text>
+		<line xp1="0" yp1="20" xp2="100" yp2="20" sp="0.1" color="lightblue"/>
+		<text xp="5" yp="20" sp="2" color="gray" align="center">20</text>
+		<line xp1="0" yp1="30" xp2="100" yp2="30" sp="0.1" color="lightblue"/>
+		<text xp="5" yp="30" sp="2" color="gray" align="center">30</text>
+		<line xp1="0" yp1="40" xp2="100" yp2="40" sp="0.1" color="lightblue"/>
+		<text xp="5" yp="40" sp="2" color="gray" align="center">40</text>
+		<line xp1="0" yp1="50" xp2="100" yp2="50" sp="0.1" color="lightblue"/>
+		<text xp="5" yp="50" sp="2" color="gray" align="center">50</text>
+		<line xp1="0" yp1="60" xp2="100" yp2="60" sp="0.1" color="lightblue"/>
+		<text xp="5" yp="60" sp="2" color="gray" align="center">60</text>
+		<line xp1="0" yp1="70" xp2="100" yp2="70" sp="0.1" color="lightblue"/>
+		<text xp="5" yp="70" sp="2" color="gray" align="center">70</text>
+		<line xp1="0" yp1="80" xp2="100" yp2="80" sp="0.1" color="lightblue"/>
+		<text xp="5" yp="80" sp="2" color="gray" align="center">80</text>
+		<line xp1="0" yp1="90" xp2="100" yp2="90" sp="0.1" color="lightblue"/>
+		<text xp="5" yp="90" sp="2" color="gray" align="center">90</text>
+	</slide>
+
+	<slide bg="white" fg="rgb(50,50,50)">
+		<text xp="50" yp="10" sp="4" align="center">Percentage-based layout</text>
+		<text xp="10" yp="50" sp="3" color="rgb(127,0,0)">Hello</text>
+		<image xp="50" yp="50" width="360" height="203" name="desert2.jpg"/>
+		<rect xp="90" yp="50" wp="10" hr="100" color="rgb(127,0,0)" opacity="50"/>
+		<text xp="10" yp="70" sp="3"  align="center">10%, 50%</text>
+		<text xp="50" yp="70" sp="3"  align="center">50%, 50%</text>
+		<text xp="90" yp="70" sp="3"  align="center">90%, 50%</text>
+
+		<line xp1="10" yp1="70" xp2="10" yp2="50" sp="0.1" color="gray"/>
+		<line xp1="50" yp1="70" xp2="50" yp2="50" sp="0.1" color="gray"/>
+		<line xp1="90" yp1="70" xp2="90" yp2="50" sp="0.1" color="gray"/>
+
+		<ellipse xp="10" yp="50" wp="0.5" hr="100" color="gray"/>
+		<ellipse xp="50" yp="50" wp="0.5" hr="100" color="gray"/>
+		<ellipse xp="90" yp="50" wp="0.5" hr="100" color="gray"/>
+	</slide>
+	
+	<slide bg="white" fg="rgb(50,50,50)">
+		<text xp="50" yp="90" sp="3" align="center">Scaling the canvas</text>
+		<image xp="25" yp="50" width="400" height="300" name="l.png"/>
+		<image xp="75" yp="50" width="300" height="400" name="p.png"/>
+		<text xp="25" yp="10" sp="2" align="center">Landscape</text>
+		<text xp="75" yp="10" sp="2" align="center">Portrait</text>
+	</slide>
+	
+	<slide>
+	  <text xp="5" yp="47.5" sp="4">Process</text>
+	  <polygon xc="32 35 32" yc="52 50 48" color="gray"/>
+	  <text xp="50" yp="47.5" sp="4" align="center">deck code</text>
+	  <text xp="75" yp="72.5" sp="4">interactive</text>
+	  <text xp="75" yp="47.5" sp="4">PDF</text>
+	  <text xp="75" yp="22.5" sp="4">SVG</text>
+
+	  <line xp1="25" yp1="50" xp2="35" yp2="50" sp=".25" color="rgb(127,127,127)"/>
+	  <line xp1="65" yp1="57.5" xp2="70" yp2="75" sp=".25" color="rgb(0,0,127)" />
+	  <line xp1="65" yp1="50" xp2="70" yp2="50" sp=".25" color="rgb(127,0,0)" />
+	  <line xp1="65" yp1="42.5" xp2="70" yp2="25" sp=".25" color="rgb(0,127,0)"/>
+
+	  <rect xp="50" yp="50" wp="30" hp="15" color="black" opacity="20" />
+	  <rect xp="85" yp="75" wp="30" hp="15" color="rgb(0,0,127)" opacity="20" />
+	  <rect xp="85" yp="50" wp="30" hp="15" color="rgb(127,0,0)" opacity="20" />
+	  <rect xp="85" yp="25" wp="30" hp="15" color="rgb(0,127,0)" opacity="20" />
+	</slide>
+	
+	
+	<slide>
+		<text font="sans" color="rgb(127,0,0)" xp="10" yp="95" sp="2">NewSlides</text><text font="sans" color="rgb(127,127,127)" xp="25" yp="95" sp="2">(where io.Writer, w, h int)</text>
+		<text font="sans" color="rgb(127,0,0)" xp="10" yp="90" sp="2">StartDeck()/EndDeck()</text>
+		<text font="sans" color="rgb(127,0,0)" xp="10" yp="85" sp="2">StartSlide</text><text font="sans" color="rgb(127,127,127)" xp="25" yp="85" sp="2">(colors ...string)</text>
+		<text font="sans" color="rgb(127,0,0)" xp="45" yp="85" sp="2">EndSlide()</text>
+		<text font="sans" color="rgb(127,0,0)" xp="10" yp="75" sp="2">Arc</text><text font="sans" color="rgb(127,127,127)"		xp="25" yp="75" sp="2">(x, y, w, h, size, a1, a2 float64, color string, opacity ...float64)</text>
+		<text font="sans" color="rgb(127,0,0)" xp="10" yp="70" sp="2">Circle</text><text font="sans" color="rgb(127,127,127)"	xp="25" yp="70" sp="2">(x, y, w float64, color string, opacity ...float64)</text>
+		<text font="sans" color="rgb(127,0,0)" xp="10" yp="65" sp="2">Code</text><text font="sans" color="rgb(127,127,127)"		xp="25" yp="65" sp="2">(x, y float64, s string, size, margin float64, color string, opacity ...float64)</text>
+		<text font="sans" color="rgb(127,0,0)" xp="10" yp="60" sp="2">Curve</text><text font="sans" color="rgb(127,127,127)"	xp="25" yp="60" sp="2">(x1, y1, x2, y2, x3, y3, size float64, color string, opacity ...float64)</text>
+		<text font="sans" color="rgb(127,0,0)" xp="10" yp="55" sp="2">Ellipse</text><text font="sans" color="rgb(127,127,127)"	xp="25" yp="55" sp="2">(x, y, w, h float64, color string, opacity ...float64)</text>
+		<text font="sans" color="rgb(127,0,0)" xp="10" yp="50" sp="2">Image</text><text font="sans" color="rgb(127,127,127)"	xp="25" yp="50" sp="2">(x, y float64, w, h int, name string)</text>
+		<text font="sans" color="rgb(127,0,0)" xp="10" yp="45" sp="2">Line</text><text font="sans" color="rgb(127,127,127)"		xp="25" yp="45" sp="2">(x1, y1, x2, y2, size float64, color string, opacity ...float64)</text>
+		<text font="sans" color="rgb(127,0,0)" xp="10" yp="40" sp="2">List</text><text font="sans" color="rgb(127,127,127)"		xp="25" yp="40" sp="2">(x, y, size float64, items []string, ltype, font, color string)</text>
+		<text font="sans" color="rgb(127,0,0)" xp="10" yp="35" sp="2">Polygon</text><text font="sans" color="rgb(127,127,127)"	xp="25" yp="35" sp="2">(x, y []float64, color string, opacity ...float64)</text>
+		<text font="sans" color="rgb(127,0,0)" xp="10" yp="30" sp="2">Rect</text><text font="sans" color="rgb(127,127,127)"		xp="25" yp="30" sp="2">(x, y, w, h float64, color string, opacity ...float64)</text>
+		<text font="sans" color="rgb(127,0,0)" xp="10" yp="25" sp="2">Square</text><text font="sans" color="rgb(127,127,127)"	xp="25" yp="25" sp="2">(x, y, w float64, color string, opacity ...float64)</text>
+		<text font="sans" color="rgb(127,0,0)" xp="10" yp="20" sp="2">Text</text><text font="sans" color="rgb(127,127,127)"		xp="25" yp="20" sp="2">(x, y float64, s, font string, size float64, color string, opacity ...float64)</text>
+		<text font="sans" color="rgb(127,0,0)" xp="10" yp="15" sp="2">TextBlock</text><text font="sans" color="rgb(127,127,127)" xp="25" yp="15" sp="2">(x, y float64, s, font string, size, margin float64, color string, opacity ...float64)</text>
+		<text font="sans" color="rgb(127,0,0)" xp="10" yp="10" sp="2">TextEnd</text><text font="sans" color="rgb(127,127,127)"	xp="25" yp="10" sp="2">(x, y float64, s, font string, size float64, color string, opacity ...float64)</text>
+		<text font="sans" color="rgb(127,0,0)" xp="10" yp="5" sp="2">TextMid</text><text font="sans" color="rgb(127,127,127)"	xp="25" yp="5" sp="2">(x, y float64, s, font string, size float64, color string, opacity ...float64)</text>
+	</slide>
+		
+	<slide>
+		<text xp="7" yp="96" sp="1.3" font="mono" file="gen.go"/>
+		<image xp="75" yp="62" width="220" height="124" name="gen1.png"/>
+		<image xp="75" yp="42" width="220" height="124" name="gen2.png"/>	
+		<image xp="75" yp="20" width="220" height="124" name="gen3.png"/>
+	</slide>
+	
+	<slide>
+		<text xp="10" yp="80" sp="1.6" font="mono" file="gen1.go"/>
+		<image xp="40" yp="30" width="600" height="337" name="gen1.png"/>
+	</slide>
+	
+	<slide>
+		<text xp="10" yp="80" sp="1.6" font="mono" file="gen2.go"/>
+		<image xp="40" yp="30" width="600" height="337" name="gen2.png"/>
+	</slide>
+
+
+	<slide>
+		<text xp="10" yp="80" sp="1.6" font="mono" file="gen3.go"/>
+		<image xp="40" yp="30" width="600" height="337" name="gen3.png"/>
+	</slide>
+
+
+	<slide bg="rgb(230,230,230)">
+		<text xp="2.5" yp="15" sp="1.75" file="slides.txt"/>
+		<image xp="25" yp="80" width="350" height="262" name="title.png"/>
+		<image xp="55" yp="60" width="350" height="262" name="section.png"/>
+		<image xp="80" yp="40" width="350" height="262" name="eames.png"/>
+		<text xp="2.5" yp="20" sp="3">capgen slides.txt | pdfdeck ... > slides.pdf</text>
+	</slide>
+
+	<slide bg="rgb(127,127,127)" fg="white">
+	   <text xp="10" yp="50" sp="5">Design Examples</text>
+	</slide>
+
+	 <slide bg="black" fg="black">
+	    <rect xp="50" yp="95" wp="100" hp="10" color="lightgray"/>
+	    <rect xp="50" yp="5" wp="100" hp="10" color="lightgray"/>
+	    <rect xp="15" yp="50" wp="30" hp="80" color="white"/>
+	    <rect xp="65" yp="50" wp="70" hp="80" color="rgb(48,76,123)"/>
+	    
+	    <text xp="50" yp="3" sp="4" align="center">Bottom</text>
+	    <text xp="50" yp="93" sp="4" align="center">Top</text>
+	    <text xp="15" yp="50" sp="10" color="black" align="center">Left</text>
+	    <text xp="65" yp="50" sp="10" color="white" align="center">Right</text>
+	  </slide>
+
+	 <slide bg="black" fg="black">
+	    <rect xp="50" yp="95" wp="100" hp="10" color="lightgray"/>
+	    <rect xp="50" yp="5" wp="100" hp="10" color="lightgray"/>
+	    <rect xp="15" yp="50" wp="30" hp="80" color="white"/>
+	    <rect xp="65" yp="50" wp="70" hp="80" color="rgb(48,76,123)"/>
+	    
+	    <text xp="50" yp="3" sp="4" align="center">10%</text>
+	    <text xp="50" yp="93" sp="4" align="center">10%</text>
+	    <text xp="15" yp="50" sp="10" color="black" align="center">30%</text>
+	    <text xp="65" yp="50" sp="10" color="white" align="center">70%</text>
+	</slide>
+
+	<slide bg="black" fg="black">
+	    <rect xp="50" yp="95" wp="100" hp="10" color="lightgray"/>
+	    <rect xp="50" yp="5" wp="100" hp="10" color="lightgray"/>
+	    <rect xp="15" yp="50" wp="30" hp="80" color="white"/>
+	    <rect xp="65" yp="50" wp="70" hp="80" color="rgb(48,76,123)"/>
+	    
+	    <text xp="50" yp="3" sp="4" align="center">Footer (bottom 10%)</text>
+	    <text xp="50" yp="93" sp="4" align="center">Header (top 10%)</text>
+	    <text xp="15" yp="50" sp="5" color="black" align="center">Summary
+(30%)</text>
+	    <text xp="65" yp="50" sp="5" color="white" align="center">Detail
+(70%)</text>
+	</slide>
+	
+	<slide bg="rgb(100,100,100)" fg="white">
+		<text xp="10" yp="90" sp="6">My Story</text>
+		<line xp1="30" yp1="80" xp2="30" yp2="20" sp="0.1" color="white"/>
+		<text align="center" xp="15" yp="50" sp="5">Section</text>
+		<list xp="40" yp="75" sp="4" color="rgb(170,170,170)">
+			<li>One</li>
+			<li>Two</li>
+			<li>Three</li>
+			<li color="white">Four</li>
+			<li>Five</li>
+			<li>Six</li>
+		</list>
+		<text xp="10" yp="5" sp="1.5" color="rgb(200,200,200)">A. Person, January 2015</text>
+	</slide>
+	
+	
+	<slide bg="steelblue" fg="white">
+		<text xp="5" yp="90" sp="6">Document Links</text>
+		<text xp="5" yp="72" sp="2.5" type="block" wp="20">Add web and mailto links with the link attribute of the text element.</text>
+		<text xp="5" yp="45" sp="2.5" type="block" wp="20">Once rendered as a PDF, clicking on the link opens the default browser or email client.</text>
+		<image xp="65" yp="50" width="668" height="410" name="pdflink.png"/>
+		<text xp="5" yp="5" sp="1.5">A Guide to Deck</text>
+		<text xp="95"  yp="5" sp="1.5" align="right">Page 10</text>
+	</slide>
+	
+	<slide bg="black" fg="white">
+	    <text  xp="15"  yp="70" sp="11" align="center">BOS</text>
+	    <image xp="15"  yp="55" width="50" height="50" name="plane.png"/>
+	    <text  xp="15"  yp="25" sp="11" align="center">SFO</text>
+	    <line  xp1="30" yp1="90" xp2="30" yp2="15" color="white" sp="0.1"/>
+	    <text  xp="35"  yp="75" sp="6.25">Virgin America 351
+Gate B38
+8:35am</text>
+	    <text xp="35" yp="25" sp="6.25" color="rgb(136,195,38)">On Time</text>
+	</slide>
+
+	<slide bg="black" fg="white">
+	<text  xp="15"  yp="70" sp="11" align="center">JFK</text>
+	<image xp="15"  yp="55" width="50" height="50" name="plane.png"/>
+	<text  xp="15"  yp="25" sp="11" align="center">IND</text>
+	<line  xp1="30" yp1="90" xp2="30" yp2="15" color="white" sp="0.1"/>
+	<text  xp="35"  yp="75" sp="6.25">US Airways 1207
+Gate C31C
+5:35pm</text>
+	<text xp="35" yp="25" sp="6.25" color="red">Delayed</text>
+	</slide>
+
+	<slide bg="black" fg="white">
+	<list xp="10" yp="80" sp="5.3" color="rgb(230,230,230)">
+	  <li>AAPL</li>
+	  <li>AMZN</li>
+	  <li>FB</li>
+	  <li>GOOG</li>
+	  <li>MSFT</li>
+	</list>
+
+	<list xp="35" yp="80" sp="5.3" >
+	  <li>110.22</li>
+	  <li>294.74</li>
+	  <li>76.45</li>
+	  <li>496.18</li>
+	  <li>46.35</li>
+	</list>
+
+	<list xp="60" yp="80" sp="5.3" color="rgb(136,195,38)">
+	  <li>+0.97 (0.89%)</li>
+	  <li>+3.33 (1.14%)</li>
+	  <li color="red">-0.27 (0.35%)</li>
+	  <li>+3.63 (0.74%)</li>
+	  <li color="red">-0.24 (0.53%)</li>
+	</list>
+	<text xp="90" yp="10" sp="1.5" align="right">Closing Price, 2015-01-13</text>
+	</slide>
+
+
+	<slide bg="white" fg="rgb(50,50,50)">
+	  <text xp="50" yp="90" sp="4" align="center">Two Columns</text>
+	  <line xp1="50" yp1="70" xp2="50" yp2="10" sp="0.1" color="black" />
+	  <image xp="20" yp="30" width="360" height="203" name="desert2.jpg" caption="Tree and Sky"/>
+	  <image xp="75" yp="30" width="360" height="203" name="desert3.jpg" caption="Rocks"/>
+	  <list xp="20" yp="75" sp="3">
+	    <li>One</li>
+	    <li>Two</li>
+	    <li>Three</li>
+	    <li>Four</li>
+	  </list>
+	  <list xp="70" yp="75" sp="3">
+	    <li>Five</li>
+	    <li>Six</li>
+	    <li>Seven</li>
+	    <li>Eight</li>
+	  </list>
+	</slide>
+	
+	
+	
+  <slide>
+  	<text xp="5" yp="53" sp="5" font="mono" color="rgb(127,0,0)">go</text>
+    <text xp="15.00" yp="95.00" sp="2.50" align=""  font="sans" opacity="100.00" color="black" type="">build</text>
+    <line xp1="15.00" yp1="92.69" xp2="90.00" yp2="92.69" sp="0.10" opacity="100.00" color="" />
+    <text xp="15.00" yp="88.08" sp="2.50" align=""  font="sans" opacity="100.00" color="black" type="">clean</text>
+    <line xp1="15.00" yp1="85.77" xp2="90.00" yp2="85.77" sp="0.10" opacity="100.00" color="" />
+    <text xp="15.00" yp="81.15" sp="2.50" align=""  font="sans" opacity="100.00" color="black" type="">env</text>
+    <line xp1="15.00" yp1="78.85" xp2="90.00" yp2="78.85" sp="0.10" opacity="100.00" color="" />
+    <text xp="15.00" yp="74.23" sp="2.50" align=""  font="sans" opacity="100.00" color="black" type="">fix</text>
+    <line xp1="15.00" yp1="71.92" xp2="90.00" yp2="71.92" sp="0.10" opacity="100.00" color="" />
+    <text xp="15.00" yp="67.31" sp="2.50" align=""  font="sans" opacity="100.00" color="black" type="">fmt</text>
+    <line xp1="15.00" yp1="65.00" xp2="90.00" yp2="65.00" sp="0.10" opacity="100.00" color="" />
+    <text xp="15.00" yp="60.38" sp="2.50" align=""  font="sans" opacity="100.00" color="black" type="">generate</text>
+    <line xp1="15.00" yp1="58.08" xp2="90.00" yp2="58.08" sp="0.10" opacity="100.00" color="" />
+    <text xp="15.00" yp="53.46" sp="2.50" align=""  font="sans" opacity="100.00" color="black" type="">get</text>
+    <line xp1="15.00" yp1="51.15" xp2="90.00" yp2="51.15" sp="0.10" opacity="100.00" color="" />
+    <text xp="15.00" yp="46.54" sp="2.50" align=""  font="sans" opacity="100.00" color="black" type="">install</text>
+    <line xp1="15.00" yp1="44.23" xp2="90.00" yp2="44.23" sp="0.10" opacity="100.00" color="" />
+    <text xp="15.00" yp="39.62" sp="2.50" align=""  font="sans" opacity="100.00" color="black" type="">list</text>
+    <line xp1="15.00" yp1="37.31" xp2="90.00" yp2="37.31" sp="0.10" opacity="100.00" color="" />
+    <text xp="15.00" yp="32.69" sp="2.50" align=""  font="sans" opacity="100.00" color="black" type="">run</text>
+    <line xp1="15.00" yp1="30.38" xp2="90.00" yp2="30.38" sp="0.10" opacity="100.00" color="" />
+    <text xp="15.00" yp="25.77" sp="2.50" align=""  font="sans" opacity="100.00" color="black" type="">test</text>
+    <line xp1="15.00" yp1="23.46" xp2="90.00" yp2="23.46" sp="0.10" opacity="100.00" color="" />
+    <text xp="15.00" yp="18.85" sp="2.50" align=""  font="sans" opacity="100.00" color="black" type="">tool</text>
+    <line xp1="15.00" yp1="16.54" xp2="90.00" yp2="16.54" sp="0.10" opacity="100.00" color="" />
+    <text xp="15.00" yp="11.92" sp="2.50" align=""  font="sans" opacity="100.00" color="black" type="">version</text>
+    <line xp1="15.00" yp1="9.62" xp2="90.00" yp2="9.62" sp="0.10" opacity="100.00" color="" />
+    <text xp="15.00" yp="5.00" sp="2.50" align=""  font="sans" opacity="100.00" color="black" type="">vet</text>
+    <line xp1="15.00" yp1="2.69" xp2="90.00" yp2="2.69" sp="0.10" opacity="100.00" color="" />
+    <text xp="30.00" yp="95.00" sp="2.50" align=""  font="sans" opacity="100.00" color="gray" type="">compile packages and dependencies</text>
+    <text xp="30.00" yp="88.08" sp="2.50" align=""  font="sans" opacity="100.00" color="gray" type="">remove object files</text>
+    <text xp="30.00" yp="81.15" sp="2.50" align=""  font="sans" opacity="100.00" color="gray" type="">print Go environment information</text>
+    <text xp="30.00" yp="74.23" sp="2.50" align=""  font="sans" opacity="100.00" color="gray" type="">run go tool fix on packages</text>
+    <text xp="30.00" yp="67.31" sp="2.50" align=""  font="sans" opacity="100.00" color="gray" type="">run gofmt on package sources</text>
+    <text xp="30.00" yp="60.38" sp="2.50" align=""  font="sans" opacity="100.00" color="gray" type="">generate Go files by processing source</text>
+    <text xp="30.00" yp="53.46" sp="2.50" align=""  font="sans" opacity="100.00" color="gray" type="">download and install packages and dependencies</text>
+    <text xp="30.00" yp="46.54" sp="2.50" align=""  font="sans" opacity="100.00" color="gray" type="">compile and install packages and dependencies</text>
+    <text xp="30.00" yp="39.62" sp="2.50" align=""  font="sans" opacity="100.00" color="gray" type="">list packages</text>
+    <text xp="30.00" yp="32.69" sp="2.50" align=""  font="sans" opacity="100.00" color="gray" type="">compile and run Go program</text>
+    <text xp="30.00" yp="25.77" sp="2.50" align=""  font="sans" opacity="100.00" color="gray" type="">test packages</text>
+    <text xp="30.00" yp="18.85" sp="2.50" align=""  font="sans" opacity="100.00" color="gray" type="">run specified go tool</text>
+    <text xp="30.00" yp="11.92" sp="2.50" align=""  font="sans" opacity="100.00" color="gray" type="">print Go version</text>
+    <text xp="30.00" yp="5.00" sp="2.50" align=""  font="sans" opacity="100.00" color="gray" type="">run go tool vet on packages</text>
+  </slide>
+
+	
+	
+	
+	<slide>
+	<line xp1="0" yp1="08.30" xp2="100" yp2="08.30" color="blue" sp="0.1"/>
+	<line xp1="0" yp1="16.60" xp2="100" yp2="16.60" color="blue" sp="0.1" />
+	<line xp1="0" yp1="24.90" xp2="100" yp2="24.90" color="blue" sp="0.1" />
+	<line xp1="0" yp1="33.20" xp2="100" yp2="33.20" color="blue" sp="0.1" />
+	<line xp1="0" yp1="41.50" xp2="100" yp2="41.50" color="blue" sp="0.1" />
+	<line xp1="0" yp1="49.80" xp2="100" yp2="49.80" color="blue" sp="0.1" />
+	<line xp1="0" yp1="58.10" xp2="100" yp2="58.10" color="blue" sp="0.1" />
+	<line xp1="0" yp1="66.40" xp2="100" yp2="66.40" color="blue" sp="0.1" />
+	<line xp1="0" yp1="74.70" xp2="100" yp2="74.70" color="blue" sp="0.1" />
+	<line xp1="0" yp1="83.00" xp2="100" yp2="83.00" color="blue" sp="0.1" />
+	<line xp1="0" yp1="91.30" xp2="100" yp2="91.30" color="red"  sp="0.1"/>
+	<text xp="50" yp="50" sp="5" align="center" font="mono" color="rgb(100,100,100)">This is not a index card</text>
+	</slide>
+
+	<slide>
+		<rect xp="25" yp="75" wp="50" hp="50" color="blue"/>
+		<rect xp="75" yp="75" wp="50" hp="50" color="green"/>
+		<rect xp="25" yp="25" wp="50" hp="50" color="red"/>
+		<rect xp="75" yp="25" wp="50" hp="50" color="purple"/>
+		<text xp="25" yp="75" sp="4" color="white" align="center">Can't buy me love</text>
+		<text xp="75" yp="75" sp="4" color="white" align="center">Bliss</text>
+		<text xp="25" yp="25" sp="4" color="white" align="center">Misery</text>
+		<text xp="75" yp="25" sp="4" color="white" align="center">We have each other</text>
+		<text xp="98" yp="50" sp="2.5" align="right">Better</text>
+		<text xp="2" yp="50"  sp="2.5" align="left">Worse</text>
+		<text xp="50" yp="95" sp="2.5" align="center">Rich</text>
+		<text xp="50" yp="5"  sp="2.5" align="center">Poor</text>
+	</slide>
+ 
+	<slide bg="white" fg="black">
+	   <text xp="20" yp="70" sp="3" wp="50" font="serif" type="block">
+	   A few months ago, I had a look at the brainchild of a few serious heavyweights working at Google.
+	   Their project, the Go programming language, is a static typed, c lookalike, semicolon-less, 
+	   self formatting, package managed, object oriented, easily parallelizable, 
+	   cluster fuck of genius with an unique class inheritance system. It doesn't have one.</text>
+	</slide>
+
+	<slide bg="white" fg="black">
+	  <text xp="20" yp="90" sp="4" color="maroon">The Go Programming Language</text>
+	  <list xp="20" yp="80" sp="3" type="text" color="black">
+	    <li>is a static typed,</li>
+	    <li>c lookalike,</li>
+	    <li>semicolon-less,</li>
+	    <li>self formatting,</li>
+	    <li>package managed,</li>
+	    <li>object oriented,</li>
+	    <li>easily parallelizable,</li>
+	    <li>cluster fuck of genius</li>
+	    <li>with an unique class inheritance system.</li>
+	  </list>
+	  <text xp="20" yp="5" sp="2" align="begin" color="gray" 
+	  link="http://mackross.net/objc/2013/07/24/objective-c-lessons-from-go/">Andrew Mackenzie-Ross, OBJECTIVE-C LESSONS FROM GO</text>
+	</slide>
+
+	<slide bg="black" fg="white">
+	  <text xp="20" yp="90" sp="4">The Go Programming Language</text>
+	  <list xp="20" yp="80" sp="3" type="text">
+	    <li>is a static typed,</li>
+	    <li>c lookalike,</li>
+	    <li>semicolon-less,</li>
+	    <li>self formatting,</li>
+	    <li>package managed,</li>
+	    <li>object oriented,</li>
+	    <li>easily parallelizable,</li>
+	    <li>cluster fuck of genius</li>
+	    <li>with an unique class inheritance system.</li>
+	  </list>
+	  <text xp="20" yp="5" sp="2" align="begin" color="gray" 
+	  link="http://mackross.net/objc/2013/07/24/objective-c-lessons-from-go/">Andrew Mackenzie-Ross, OBJECTIVE-C LESSONS FROM GO</text>
+	</slide>
+	 
+	<slide bg="white" fg="rgb(50,50,50)">
+	  <text xp="5" yp="80" sp="4">The Go Programming Language</text>
+	  <line xp1="5" yp1="90" xp2="90" yp2="90" color="rgb(50,50,50)" sp="0.1"/> 
+	  <text xp="5" yp="60" sp="3" wp="75" type="block"> 
+	   is a static typed, c lookalike, semicolon-less, self formatting,
+	   package managed, object oriented, easily parallelizable,
+	   cluster fuck of genius with an unique class inheritance system</text>
+	   <text xp="5" yp="20" sp="3" color="maroon">It doesn't have one.</text>
+	  <text xp="5" yp="5" sp="2" align="begin" color="gray"
+	  link="http://mackross.net/objc/2013/07/24/objective-c-lessons-from-go/">Andrew Mackenzie-Ross, OBJECTIVE-C LESSONS FROM GO</text>
+	</slide>
+	
+	<slide bg="white" fg="black">
+	   <image xp="95" yp="10" width="75" height="100" name="doc.png"/>
+	   <text xp="20" yp="70" sp="4" wp="40" font="serif" type="block">So, the next time you're about to make a subclass, 
+	   think hard and ask yourself</text>
+	   <text xp="20" yp="40" sp="6" font="serif" color="rgb(127,0,0)">what would Go do</text>
+	   <text xp="20" yp="15" sp="3" color="rgb(127,127,127)" 
+	   link="http://mackross.net/about/">Andrew Mackenzie-Ross</text>
+	</slide>
+
+	<slide bg="rgb(0,0,127)" fg="rgb(240,240,240)">
+	  	<text xp="10" yp="75" sp="3.75"  wp="65" type="block">Python and Ruby programmers come to Go 
+	because they don't have to surrender much expressiveness, 
+	but gain performance and get to play with concurrency.</text>
+	        <text xp="10" yp="15" sp="2" link="http://commandcenter.blogspot.com/2012/06/less-is-exponentially-more.html">Less is exponentially more
+Rob Pike</text>
+	</slide>
+	<slide>
+	  <text xp="50" yp="50" sp="3" color="white" align="center">You must not blame me if I do talk to the clouds.</text>
+	  <rect xp="50" yp="52" wp="100" hp="15" color="black" opacity="40"/>
+	  <image name="cloudy1024.jpg" width="1024" height="768" xp="50" yp="50"/>
+	</slide>
+	
+	<slide>
+	  <text xp="50" yp="70" sp="6" font="serif" color="rgb(127,0,0)" align="center">FOR, LO,</text>
+	  <text xp="50" yp="60" sp="3.3" font="serif" align="center">the winter is past,
+the rain is over and gone;
+The flowers appear on the earth;
+the time for the singing of birds is come, 
+and the voice of the turtle is heard in our land.
+	  </text>
+	  <text xp="50" yp="10" sp="1" align="center" color="rgb(127,127,127)">Song of Solomon 2:11-12</text>
+	</slide>
+
+	<slide>
+		<image xp="70" yp="50" width="600" height="600" name="dr600.jpg" caption="Dieter Rams" color="gray"/>
+		<text xp="4" yp="90" sp="4" link="https://www.vitsoe.com/us/about/good-design">Good Design</text>
+		<list xp="4" yp="80" sp="2.2" type="plain">
+			<li>is innovative</li>
+			<li>makes a product useful</li>
+			<li>is aesthetic</li>
+			<li>makes a product understandable</li>
+			<li>is unobtrusive</li>
+			<li>is honest</li>
+			<li>is long-lasting</li>
+			<li>is thorough down to the last detail</li>
+			<li>is environmentally-friendly</li>
+			<li color="rgb(127,0,0)">is as little design as possible</li>
+		</list>
+	</slide>
+	
+	
+	<slide bg="black" fg="white">
+	<image xp="50" yp="50" width="1024" height="637" name="jobs2.jpg"/>
+	<text link="http://en.wikiquote.org/wiki/Steve_Jobs"
+	xp="50" yp="70" wp="30" type="block" sp="2.5" >You’ve got to start with the customer experience and work back
+	toward the technology, not the other way around.</text>
+	<text xp="30" yp="10" sp="1.2" color="white">Steve Jobs</text>
+	</slide> 
+	
+	<slide>
+	<!-- gift author: Grigory Dryapak (disintegration) -->
+	<rect xp="50" yp="45" wp="20" hr="80" color="rgb(127,127,127)" opacity="100"/>
+	<rect xp="50" yp="60" wp="22" hr="20" color="rgb(127,127,127)" opacity="100"/>
+	<polygon xc="50 52 56 50" yc="64 68 68 64"  color="rgb(127,0,0)"/>
+	<polygon xc="40 44 50 40" yc="72 72 64 72" color="rgb(127,0,0)"/>
+	<text xp="50" yp="20" sp="7" align="center">gift</text>
+	<text xp="50" yp="10" sp="4" align="center" color="gray">Go Image Filtering Toolkit</text>
+	
+	</slide>
+	
+	<slide>
+		<image xp="25" yp="83" width="422" height="238" name="desert3.jpg"/>
+		<image xp="75" yp="83" width="422" height="238" name="f.jpg"/>
+		<text xp="50" yp="58" align="center" sp="3">gift -contrast 80 -blur 4 rocks.jpg > abstract.jpg</text>
+		<list xp="10" yp="53" sp="1.6" color="rgb(80,80,80)">
+			<li>-blur=0: blur value</li>
+			<li>-brightness=-200: brightness value (-100, 100)</li>
+			<li>-contrast=-200: contrast value (-100, 100)</li>
+			<li>-crop="": crop x1,y1,x2,y2</li>
+			<li>-edge=false: edge</li>
+			<li>-emboss=false: emboss</li>
+			<li>-fliph=false: flip horizontal</li>
+			<li>-flipv=false: flip vertical</li>
+			<li>-gamma=0: gamma value</li>
+			<li>-gray=false: grayscale</li>
+			<li>-hue=-200: hue value (-180, 180)</li>
+			<li>-invert=false: invert</li>
+		</list>
+		<list xp="45" yp="53" sp="1.6" color="rgb(80,80,80)">
+			<li>-max=0: local maximum (kernel size)</li>
+			<li>-mean=0: local mean filter (kernel size)</li>
+			<li>-median=0: local median filter (kernel size)</li>
+			<li>-min=0: local minimum (kernel size)</li>
+			<li>-resize="": resize w,h</li>
+			<li>-rotate=0: rotate specified degrees counter-clockwise</li>
+			<li>-saturation=-200: saturation value (-100, 500)</li>
+			<li>-sepia=-1: sepia percentage (0-100)</li>
+			<li>-sigmoid="": sigmoid contrast (midpoint,factor)</li>
+			<li>-transpose=false: flip horizontally and rotate 90° counter-clockwise</li>
+			<li>-transverse=false:  flips vertically and rotate 90° counter-clockwise</li>
+			<li>-unsharp="": unsharp mask (sigma,amount,threshold)</li>
+		</list>
+	</slide>
+	
+	<slide>
+		<image xp="70" yp="51" width="600" height="500" name="at.jpg"/>
+		<image xp="20" yp="50" width="485" height="500" name="picasso.png"/>
+		<text xp="20" yp="10" sp="5" align="right">Pic</text>
+		<text xp="20" yp="10" sp="5"  color="gray">asso</text>
+		<text xp="70" yp="10" sp="5" align="right">Tur</text>
+		<text xp="70" yp="10" sp="5" color="gray">ing</text>
+	</slide>
+	
+	<slide>
+		<text xp="25" yp="80" sp="7">Thank you</text>
+		<image name="100-GitHub-Mark.png"		width="75" height="75" xp="15" yp="65" />
+		<image name="100-Twitter_logo_blue.png" width="74" height="60" xp="15" yp="55" />
+		<image name="100-gmail-logo-2013.png"	width="75" height="75" xp="15" yp="45" />
+		<image name="100-flickr-logo.png"		width="75" height="75" xp="15" yp="35" />
+		<image name="100-speakerdeck.png"		width="60" height="60" xp="15" yp="25" />
+	
+		<text xp="25" yp="63" sp="4" color="rgb(100,100,100)">github.com/ajstarks</text>
+		<text xp="25" yp="53" sp="4" color="rgb(100,100,100)">@ajstarks</text>
+		<text xp="25" yp="43" sp="4" color="rgb(100,100,100)">ajstarks@gmail.com</text>
+		<text xp="25" yp="33" sp="4" color="rgb(100,100,100)">flickr.com/photos/ajstarks</text>
+		<text xp="25" yp="23" sp="4" color="rgb(100,100,100)">speakerdeck.com/ajstarks</text>
+	</slide>
+
+</deck>
