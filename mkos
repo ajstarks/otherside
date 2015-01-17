@@ -1,0 +1,2 @@
+#!/bin/sh
+pdfdeck -pagesize 1024,768 -fontdir $df -mono FiraMono-Regular -sans FiraSans-Regular -serif Charter\ Regular $* os.xml
