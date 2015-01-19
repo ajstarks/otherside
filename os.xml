@@ -141,13 +141,13 @@
 	
 	<slide>
 		<text xp="5" yp="98" sp="0.7" font="mono" file="rpd.go"/>
-		<rect xp="10" yp="90" wp="55" hp="10"  color="lightsteelblue" opacity="30"/>
-		<rect xp="10" yp="74" wp="55" hp="18" color="lightsteelblue" opacity="30"/>
-		<rect xp="10" yp="60" wp="55" hp="7"  color="lightsteelblue" opacity="30"/>
-		<rect xp="10" yp="49" wp="55" hp="13" color="lightsteelblue" opacity="30"/>
-		<rect xp="10" yp="35" wp="55" hp="12" color="lightsteelblue" opacity="30"/>
-		<rect xp="10" yp="21" wp="55" hp="15" color="lightsteelblue" opacity="30"/>
-		<rect xp="10" yp="7"  wp="55" hp="11" color="lightsteelblue" opacity="30"/>
+		<rect xp="10" yp="90" wp="55" hp="10"  color="lightsteelblue" opacity="40"/>
+		<rect xp="10" yp="74" wp="55" hp="18" color="lightsteelblue" opacity="40"/>
+		<rect xp="10" yp="60" wp="55" hp="7"  color="lightsteelblue" opacity="40"/>
+		<rect xp="10" yp="49" wp="55" hp="13" color="lightsteelblue" opacity="40"/>
+		<rect xp="10" yp="35" wp="55" hp="12" color="lightsteelblue" opacity="40"/>
+		<rect xp="10" yp="21" wp="55" hp="15" color="lightsteelblue" opacity="40"/>
+		<rect xp="10" yp="7"  wp="55" hp="11" color="lightsteelblue" opacity="40"/>
 	
 		<text xp="40" yp="88" sp="3">Imports</text>
 		<text xp="40" yp="74" sp="3">Define the input data structures</text>
@@ -308,6 +308,7 @@ type item struct {
 	</slide>
 	
 	<slide>
+	<!-- <text xp="5" yp="5" sp="3">http://ajstarks.org:2012/benchviz/</text> -->
 	<image xp="50" yp="50" width="1024" height="642" name="bv-combo.png"/>
 	</slide>
 	
@@ -392,7 +393,7 @@ type item struct {
 	
 	<slide bg="white" fg="rgb(50,50,50)">
 	  <text xp="95" yp="5" sp="3" align="right">Anatomy of a Deck</text>
-	  <list  xp="20" yp="90" sp="1.4" font="mono">
+	  <list  xp="22" yp="90" sp="1.8" font="sans">
 	      <li>&lt;deck&gt;</li>
 	      <li>  &lt;canvas width="1024" height="768" /&gt;</li>
 	      <li>  &lt;slide bg="white" fg="black"&gt;</li>
@@ -412,7 +413,7 @@ type item struct {
 	      <li>  &lt;/slide&gt;</li>
 	      <li>&lt;/deck&gt;</li>
 	  </list>
-	  <list xp="3" yp="90" sp="1.4" color="rgb(127,0,0)" >
+	  <list xp="3" yp="90" sp="1.8" color="rgb(127,0,0)" >
 	      <li>Start the deck</li>
 	      <li>Set the canvas size</li>
 	      <li>Begin a slide</li>
@@ -452,45 +453,48 @@ type item struct {
 	
 	<slide bg="white" fg="rgb(50,50,50)">
 		<text xp="50" yp="50" sp="5" align="center">Percent Grid</text>
-		<line xp1="0" yp1="0" xp2="0" yp2="100" sp="0.1" color="blue"/>
-		<line xp1="0" yp1="0" xp2="100" yp2="0" sp="0.1" color="blue"/>
-		<line xp1="100" yp1="0" xp2="100" yp2="100" sp="0.1" color="blue"/>
-		<line xp1="10" yp1="0" xp2="10" yp2="100" sp="0.1" color="lightblue"/>
+		<!--
+		<line xp1="0" yp1="0" xp2="0" yp2="100" sp="0.5" color="blue"/>
+		<line xp1="0" yp1="0" xp2="100" yp2="0" sp="0.5" color="blue"/>
+		
+		<line xp1="100" yp1="0" xp2="100" yp2="100" sp="0.3" color="blue"/>
+		<line xp1="10" yp1="0" xp2="10" yp2="100" sp="0.3" color="lightblue"/>
+		-->
 		<text xp="10" yp="95" sp="2" color="gray" align="center">10</text>
-		<line xp1="20" yp1="0" xp2="20" yp2="100" sp="0.1" color="lightblue"/>
+		<line xp1="20" yp1="0" xp2="20" yp2="100" sp="0.3" color="lightblue"/>
 		<text xp="20" yp="95" sp="2" color="gray" align="center">20</text>
-		<line xp1="30" yp1="0" xp2="30" yp2="100" sp="0.1" color="lightblue"/>
+		<line xp1="30" yp1="0" xp2="30" yp2="100" sp="0.3" color="lightblue"/>
 		<text xp="30" yp="95" sp="2" color="gray" align="center">30</text>
-		<line xp1="40" yp1="0" xp2="40" yp2="100" sp="0.1" color="lightblue"/>
+		<line xp1="40" yp1="0" xp2="40" yp2="100" sp="0.3" color="lightblue"/>
 		<text xp="40" yp="95" sp="2" color="gray" align="center">40</text>
-		<line xp1="50" yp1="0" xp2="50" yp2="100" sp="0.1" color="lightblue"/>
+		<line xp1="50" yp1="0" xp2="50" yp2="100" sp="0.3" color="lightblue"/>
 		<text xp="50" yp="95" sp="2" color="gray" align="center">50</text>
-		<line xp1="60" yp1="0" xp2="60" yp2="100" sp="0.1" color="lightblue"/>
+		<line xp1="60" yp1="0" xp2="60" yp2="100" sp="0.3" color="lightblue"/>
 		<text xp="60" yp="95" sp="2" color="gray" align="center">60</text>
-		<line xp1="70" yp1="0" xp2="70" yp2="100" sp="0.1" color="lightblue"/>
+		<line xp1="70" yp1="0" xp2="70" yp2="100" sp="0.3" color="lightblue"/>
 		<text xp="70" yp="95" sp="2" color="gray" align="center">70</text>
-		<line xp1="80" yp1="0" xp2="80" yp2="100" sp="0.1" color="lightblue"/>
+		<line xp1="80" yp1="0" xp2="80" yp2="100" sp="0.3" color="lightblue"/>
 		<text xp="80" yp="95" sp="2" color="gray" align="center">80</text>
-		<line xp1="90" yp1="0" xp2="90" yp2="100" sp="0.1" color="lightblue"/>
+		<line xp1="90" yp1="0" xp2="90" yp2="100" sp="0.3" color="lightblue"/>
 		<text xp="90" yp="95" sp="2" color="gray" align="center">90</text>
-		<line xp1="0" yp1="100" xp2="100" yp2="100" sp="0.1" color="blue"/>
-		<line xp1="0" yp1="10" xp2="100" yp2="10" sp="0.1" color="lightblue"/>
+		<line xp1="0" yp1="100" xp2="100" yp2="100" sp="0.3" color="blue"/>
+		<line xp1="0" yp1="10" xp2="100" yp2="10" sp="0.3" color="lightblue"/>
 		<text xp="5" yp="10" sp="2" color="gray" align="center">10</text>
-		<line xp1="0" yp1="20" xp2="100" yp2="20" sp="0.1" color="lightblue"/>
+		<line xp1="0" yp1="20" xp2="100" yp2="20" sp="0.3" color="lightblue"/>
 		<text xp="5" yp="20" sp="2" color="gray" align="center">20</text>
-		<line xp1="0" yp1="30" xp2="100" yp2="30" sp="0.1" color="lightblue"/>
+		<line xp1="0" yp1="30" xp2="100" yp2="30" sp="0.3" color="lightblue"/>
 		<text xp="5" yp="30" sp="2" color="gray" align="center">30</text>
-		<line xp1="0" yp1="40" xp2="100" yp2="40" sp="0.1" color="lightblue"/>
+		<line xp1="0" yp1="40" xp2="100" yp2="40" sp="0.3" color="lightblue"/>
 		<text xp="5" yp="40" sp="2" color="gray" align="center">40</text>
-		<line xp1="0" yp1="50" xp2="100" yp2="50" sp="0.1" color="lightblue"/>
+		<line xp1="0" yp1="50" xp2="100" yp2="50" sp="0.3" color="lightblue"/>
 		<text xp="5" yp="50" sp="2" color="gray" align="center">50</text>
-		<line xp1="0" yp1="60" xp2="100" yp2="60" sp="0.1" color="lightblue"/>
+		<line xp1="0" yp1="60" xp2="100" yp2="60" sp="0.3" color="lightblue"/>
 		<text xp="5" yp="60" sp="2" color="gray" align="center">60</text>
-		<line xp1="0" yp1="70" xp2="100" yp2="70" sp="0.1" color="lightblue"/>
+		<line xp1="0" yp1="70" xp2="100" yp2="70" sp="0.3" color="lightblue"/>
 		<text xp="5" yp="70" sp="2" color="gray" align="center">70</text>
-		<line xp1="0" yp1="80" xp2="100" yp2="80" sp="0.1" color="lightblue"/>
+		<line xp1="0" yp1="80" xp2="100" yp2="80" sp="0.3" color="lightblue"/>
 		<text xp="5" yp="80" sp="2" color="gray" align="center">80</text>
-		<line xp1="0" yp1="90" xp2="100" yp2="90" sp="0.1" color="lightblue"/>
+		<line xp1="0" yp1="90" xp2="100" yp2="90" sp="0.3" color="lightblue"/>
 		<text xp="5" yp="90" sp="2" color="gray" align="center">90</text>
 	</slide>
 
