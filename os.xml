@@ -141,13 +141,13 @@
 	
 	<slide>
 		<text xp="5" yp="98" sp="0.7" font="mono" file="rpd.go"/>
-		<rect xp="10" yp="90" wp="55" hp="10"  color="lightsteelblue" opacity="40"/>
-		<rect xp="10" yp="74" wp="55" hp="18" color="lightsteelblue" opacity="40"/>
-		<rect xp="10" yp="60" wp="55" hp="7"  color="lightsteelblue" opacity="40"/>
-		<rect xp="10" yp="49" wp="55" hp="13" color="lightsteelblue" opacity="40"/>
-		<rect xp="10" yp="35" wp="55" hp="12" color="lightsteelblue" opacity="40"/>
-		<rect xp="10" yp="21" wp="55" hp="15" color="lightsteelblue" opacity="40"/>
-		<rect xp="10" yp="7"  wp="55" hp="11" color="lightsteelblue" opacity="40"/>
+		<rect xp="10" yp="90" wp="55" hp="10"  color="lightsteelblue" opacity="50"/>
+		<rect xp="10" yp="74" wp="55" hp="18" color="lightsteelblue" opacity="50"/>
+		<rect xp="10" yp="60" wp="55" hp="7"  color="lightsteelblue" opacity="50"/>
+		<rect xp="10" yp="49" wp="55" hp="13" color="lightsteelblue" opacity="50"/>
+		<rect xp="10" yp="35" wp="55" hp="12" color="lightsteelblue" opacity="50"/>
+		<rect xp="10" yp="21" wp="55" hp="15" color="lightsteelblue" opacity="50"/>
+		<rect xp="10" yp="7"  wp="55" hp="11" color="lightsteelblue" opacity="50"/>
 	
 		<text xp="40" yp="88" sp="3">Imports</text>
 		<text xp="40" yp="74" sp="3">Define the input data structures</text>
