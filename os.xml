@@ -574,19 +574,19 @@ type item struct {
 	</slide>
 	
 	<slide>
-		<text xp="5" yp="95" sp="2.5" font="mono" file="gen1.go"/>
-		<image xp="35" yp="30" width="600" height="337" name="gen1.png"/>
+		<text xp="5" yp="90" sp="2.5" font="mono" file="gen1.go"/>
+		<image xp="35" yp="25" width="600" height="337" name="gen1.png"/>
 	</slide>
 	
 	<slide>
-		<text xp="5" yp="95" sp="2.5" font="mono" file="gen2.go"/>
-		<image xp="35" yp="30" width="600" height="337" name="gen2.png"/>
+		<text xp="5" yp="90" sp="2.5" font="mono" file="gen2.go"/>
+		<image xp="35" yp="25" width="600" height="337" name="gen2.png"/>
 	</slide>
 
 
 	<slide>
-		<text xp="5" yp="95" sp="2.5" font="mono" file="gen3.go"/>
-		<image xp="35" yp="30" width="600" height="337" name="gen3.png"/>
+		<text xp="5" yp="90" sp="2.5" font="mono" file="gen3.go"/>
+		<image xp="35" yp="25" width="600" height="337" name="gen3.png"/>
 	</slide>
 
 
@@ -800,19 +800,19 @@ Gate C31C
 	<text xp="50" yp="50" sp="5" align="center" font="mono" color="rgb(100,100,100)">This is not a index card</text>
 	</slide>
 
-	<slide>
+	<slide fg="white">
 		<rect xp="25" yp="75" wp="50" hp="50" color="blue"/>
 		<rect xp="75" yp="75" wp="50" hp="50" color="green"/>
 		<rect xp="25" yp="25" wp="50" hp="50" color="red"/>
 		<rect xp="75" yp="25" wp="50" hp="50" color="purple"/>
-		<text xp="25" yp="75" sp="4" color="white" align="center">Can't buy me love</text>
-		<text xp="75" yp="75" sp="4" color="white" align="center">Bliss</text>
-		<text xp="25" yp="25" sp="4" color="white" align="center">Misery</text>
-		<text xp="75" yp="25" sp="4" color="white" align="center">We have each other</text>
-		<text xp="98" yp="50" sp="2.5" align="right">Better</text>
-		<text xp="2" yp="50"  sp="2.5" align="left">Worse</text>
-		<text xp="50" yp="95" sp="2.5" align="center">Rich</text>
-		<text xp="50" yp="5"  sp="2.5" align="center">Poor</text>
+		<text xp="25" yp="75" sp="4" color="white" align="center" font="serif">Can't buy me love</text>
+		<text xp="75" yp="75" sp="4" color="white" align="center" font="serif">Bliss</text>
+		<text xp="25" yp="25" sp="4" color="white" align="center" font="serif">Misery</text>
+		<text xp="75" yp="25" sp="4" color="white" align="center" font="serif">We have each other</text>
+		<text xp="98" yp="50" sp="2" align="right">Better</text>
+		<text xp="2" yp="50"  sp="2" align="left">Worse</text>
+		<text xp="50" yp="95" sp="2" align="center">Rich</text>
+		<text xp="50" yp="5"  sp="2" align="center">Poor</text>
 	</slide>
  
 	<slide bg="white" fg="black">
