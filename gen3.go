@@ -1,5 +1,6 @@
 // Picture with text annotation
-quote := "Yours is some tepid, off-brand, generic ‘cola’. What I’m making is “Classic Coke”"
+quote := "Yours is some tepid, off-brand, generic ‘cola’. " + 
+          "What I’m making is “Classic Coke”"
 person := "Heisenberg"
 deck.StartSlide("black", "white")
 deck.Image(50, 50, 1440, 900, "classic-coke.png")

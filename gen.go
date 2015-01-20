@@ -18,14 +18,16 @@ func main() {
 	deck.EndSlide()
 
 	// List
-	items := []string{"First", "Second", "Third", "Fourth", "Fifth"}
+	items := []string{"First", "Second", 
+	                  "Third", "Fourth", "Fifth"}
 	deck.StartSlide()
 	deck.Text(10, 90, "Important Items", "sans", 5, "")
 	deck.List(10, 70, 4, items, "bullet", "sans", "red")
 	deck.EndSlide()
 
 	// Picture with text annotation
-	quote := "Yours is some tepid, off-brand, generic ‘cola’. What I’m making is “Classic Coke”"
+	quote := "Yours is some tepid, off-brand, generic ‘cola’. " +
+		     "What I’m making is “Classic Coke”"
 	person := "Heisenberg"
 	deck.StartSlide("black", "white")
 	deck.Image(50, 50, 1440, 900, "classic-coke.png")

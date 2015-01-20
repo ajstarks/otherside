@@ -574,19 +574,19 @@ type item struct {
 	</slide>
 	
 	<slide>
-		<text xp="10" yp="80" sp="1.6" font="mono" file="gen1.go"/>
-		<image xp="40" yp="30" width="600" height="337" name="gen1.png"/>
+		<text xp="5" yp="95" sp="2.5" font="mono" file="gen1.go"/>
+		<image xp="35" yp="30" width="600" height="337" name="gen1.png"/>
 	</slide>
 	
 	<slide>
-		<text xp="10" yp="80" sp="1.6" font="mono" file="gen2.go"/>
-		<image xp="40" yp="30" width="600" height="337" name="gen2.png"/>
+		<text xp="5" yp="95" sp="2.5" font="mono" file="gen2.go"/>
+		<image xp="35" yp="30" width="600" height="337" name="gen2.png"/>
 	</slide>
 
 
 	<slide>
-		<text xp="10" yp="80" sp="1.6" font="mono" file="gen3.go"/>
-		<image xp="40" yp="30" width="600" height="337" name="gen3.png"/>
+		<text xp="5" yp="95" sp="2.5" font="mono" file="gen3.go"/>
+		<image xp="35" yp="30" width="600" height="337" name="gen3.png"/>
 	</slide>
 
 
@@ -899,7 +899,7 @@ The flowers appear on the earth;
 the time for the singing of birds is come, 
 and the voice of the turtle is heard in our land.
 	  </text>
-	  <text xp="50" yp="10" sp="1" align="center" color="rgb(127,127,127)">Song of Solomon 2:11-12</text>
+	  <text xp="50" yp="10" sp="2" align="center" color="rgb(127,127,127)">Song of Solomon 2:11-12</text>
 	</slide>
 
 	<slide>
