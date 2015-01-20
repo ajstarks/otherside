@@ -452,50 +452,50 @@ type item struct {
 	    <polygon xc="75 75 80" yc="8 12 10" color="rgb(0,0,127)"/>
 	</slide>
 	
-	<slide bg="white" fg="rgb(50,50,50)">
+	
+	
+	<slide>
 		<text xp="50" yp="50" sp="5" align="center">Percent Grid</text>
-		<!--
-		<line xp1="0" yp1="0" xp2="0" yp2="100" sp="0.5" color="blue"/>
-		<line xp1="0" yp1="0" xp2="100" yp2="0" sp="0.5" color="blue"/>
-		<line xp1="100" yp1="0" xp2="100" yp2="100" sp="0.3" color="blue"/>
-		-->
-		<line xp1="10" yp1="0" xp2="10" yp2="100" sp="0.1" color="steelblue"/>
-		<text xp="10" yp="95" sp="3" color="gray" align="center">10</text>
-		<line xp1="20" yp1="0" xp2="20" yp2="100" sp="0.1" color="steelblue"/>
-		<text xp="20" yp="95" sp="3" color="gray" align="center">20</text>
-		<line xp1="30" yp1="0" xp2="30" yp2="100" sp="0.1" color="steelblue"/>
-		<text xp="30" yp="95" sp="3" color="gray" align="center">30</text>
-		<line xp1="40" yp1="0" xp2="40" yp2="100" sp="0.1" color="steelblue"/>
-		<text xp="40" yp="95" sp="3" color="gray" align="center">40</text>
-		<line xp1="50" yp1="0" xp2="50" yp2="100" sp="0.1" color="steelblue"/>
-		<text xp="50" yp="95" sp="3" color="gray" align="center">50</text>
-		<line xp1="60" yp1="0" xp2="60" yp2="100" sp="0.1" color="steelblue"/>
-		<text xp="60" yp="95" sp="3" color="gray" align="center">60</text>
-		<line xp1="70" yp1="0" xp2="70" yp2="100" sp="0.1" color="steelblue"/>
-		<text xp="70" yp="95" sp="3" color="gray" align="center">70</text>
-		<line xp1="80" yp1="0" xp2="80" yp2="100" sp="0.1" color="steelblue"/>
-		<text xp="80" yp="95" sp="3" color="gray" align="center">80</text>
-		<line xp1="90" yp1="0" xp2="90" yp2="100" sp="0.1" color="steelblue"/>
-		<text xp="90" yp="95" sp="3" color="gray" align="center">90</text>
-		<line xp1="0" yp1="100" xp2="100" yp2="100" sp="0.1" color="steelblue"/>
-		<line xp1="0" yp1="10" xp2="100" yp2="10" sp="0.1" color="steelblue"/>
-		<text xp="5" yp="10" sp="3" color="gray" align="center">10</text>
-		<line xp1="0" yp1="20" xp2="100" yp2="20" sp="0.1" color="steelblue"/>
-		<text xp="5" yp="20" sp="3" color="gray" align="center">20</text>
-		<line xp1="0" yp1="30" xp2="100" yp2="30" sp="0.1" color="steelblue"/>
-		<text xp="5" yp="30" sp="3" color="gray" align="center">30</text>
-		<line xp1="0" yp1="40" xp2="100" yp2="40" sp="0.1" color="steelblue"/>
-		<text xp="5" yp="40" sp="3" color="gray" align="center">40</text>
-		<line xp1="0" yp1="50" xp2="100" yp2="50" sp="0.1" color="steelblue"/>
-		<text xp="5" yp="50" sp="3" color="gray" align="center">50</text>
-		<line xp1="0" yp1="60" xp2="100" yp2="60" sp="0.1" color="steelblue"/>
-		<text xp="5" yp="60" sp="3" color="gray" align="center">60</text>
-		<line xp1="0" yp1="70" xp2="100" yp2="70" sp="0.1" color="steelblue"/>
-		<text xp="5" yp="70" sp="3" color="gray" align="center">70</text>
-		<line xp1="0" yp1="80" xp2="100" yp2="80" sp="0.1" color="steelblue"/>
-		<text xp="5" yp="80" sp="3" color="gray" align="center">80</text>
-		<line xp1="0" yp1="90" xp2="100" yp2="90" sp="0.1" color="steelblue"/>
-		<text xp="5" yp="90" sp="3" color="gray" align="center">90</text>
+		<line xp1="0.00" yp1="0.00" xp2="0.00" yp2="100.00" sp="0.10"  color="steelblue" />
+		<line xp1="10.00" yp1="0.00" xp2="10.00" yp2="100.00" sp="0.10"  color="steelblue" />
+		<text xp="10.00" yp="95.00" sp="3.00" align="center" wp="0.00" font="sans"  color="gray" type="">10</text>
+		<line xp1="20.00" yp1="0.00" xp2="20.00" yp2="100.00" sp="0.10"  color="steelblue" />
+		<text xp="20.00" yp="95.00" sp="3.00" align="center" wp="0.00" font="sans"  color="gray" type="">20</text>
+		<line xp1="30.00" yp1="0.00" xp2="30.00" yp2="100.00" sp="0.10"  color="steelblue" />
+		<text xp="30.00" yp="95.00" sp="3.00" align="center" wp="0.00" font="sans"  color="gray" type="">30</text>
+		<line xp1="40.00" yp1="0.00" xp2="40.00" yp2="100.00" sp="0.10"  color="steelblue" />
+		<text xp="40.00" yp="95.00" sp="3.00" align="center" wp="0.00" font="sans"  color="gray" type="">40</text>
+		<line xp1="50.00" yp1="0.00" xp2="50.00" yp2="100.00" sp="0.10"  color="steelblue" />
+		<text xp="50.00" yp="95.00" sp="3.00" align="center" wp="0.00" font="sans"  color="gray" type="">50</text>
+		<line xp1="60.00" yp1="0.00" xp2="60.00" yp2="100.00" sp="0.10"  color="steelblue" />
+		<text xp="60.00" yp="95.00" sp="3.00" align="center" wp="0.00" font="sans"  color="gray" type="">60</text>
+		<line xp1="70.00" yp1="0.00" xp2="70.00" yp2="100.00" sp="0.10"  color="steelblue" />
+		<text xp="70.00" yp="95.00" sp="3.00" align="center" wp="0.00" font="sans"  color="gray" type="">70</text>
+		<line xp1="80.00" yp1="0.00" xp2="80.00" yp2="100.00" sp="0.10"  color="steelblue" />
+		<text xp="80.00" yp="95.00" sp="3.00" align="center" wp="0.00" font="sans"  color="gray" type="">80</text>
+		<line xp1="90.00" yp1="0.00" xp2="90.00" yp2="100.00" sp="0.10"  color="steelblue" />
+		<text xp="90.00" yp="95.00" sp="3.00" align="center" wp="0.00" font="sans"  color="gray" type="">90</text>
+		<line xp1="100.00" yp1="0.00" xp2="100.00" yp2="100.00" sp="0.10"  color="steelblue" />
+		<line xp1="0.00" yp1="0.00" xp2="100.00" yp2="0.00" sp="0.10"  color="steelblue" />
+		<line xp1="0.00" yp1="10.00" xp2="100.00" yp2="10.00" sp="0.10"  color="steelblue" />
+		<text xp="5.00" yp="8.50" sp="3.00" align="center" wp="0.00" font="sans"  color="gray" type="">10</text>
+		<line xp1="0.00" yp1="20.00" xp2="100.00" yp2="20.00" sp="0.10"  color="steelblue" />
+		<text xp="5.00" yp="18.50" sp="3.00" align="center" wp="0.00" font="sans"  color="gray" type="">20</text>
+		<line xp1="0.00" yp1="30.00" xp2="100.00" yp2="30.00" sp="0.10"  color="steelblue" />
+		<text xp="5.00" yp="28.50" sp="3.00" align="center" wp="0.00" font="sans"  color="gray" type="">30</text>
+		<line xp1="0.00" yp1="40.00" xp2="100.00" yp2="40.00" sp="0.10"  color="steelblue" />
+		<text xp="5.00" yp="38.50" sp="3.00" align="center" wp="0.00" font="sans"  color="gray" type="">40</text>
+		<line xp1="0.00" yp1="50.00" xp2="100.00" yp2="50.00" sp="0.10"  color="steelblue" />
+		<text xp="5.00" yp="48.50" sp="3.00" align="center" wp="0.00" font="sans"  color="gray" type="">50</text>
+		<line xp1="0.00" yp1="60.00" xp2="100.00" yp2="60.00" sp="0.10"  color="steelblue" />
+		<text xp="5.00" yp="58.50" sp="3.00" align="center" wp="0.00" font="sans"  color="gray" type="">60</text>
+		<line xp1="0.00" yp1="70.00" xp2="100.00" yp2="70.00" sp="0.10"  color="steelblue" />
+		<text xp="5.00" yp="68.50" sp="3.00" align="center" wp="0.00" font="sans"  color="gray" type="">70</text>
+		<line xp1="0.00" yp1="80.00" xp2="100.00" yp2="80.00" sp="0.10"  color="steelblue" />
+		<text xp="5.00" yp="78.50" sp="3.00" align="center" wp="0.00" font="sans" opacity="100.00" color="gray" type="">80</text>
+		<line xp1="0.00" yp1="90.00" xp2="100.00" yp2="90.00" sp="0.10" color="steelblue" />
+		<text xp="5.00" yp="88.50" sp="3.00" align="center" wp="0.00" font="sans" opacity="100.00" color="gray" type="">90</text>
+		<line xp1="0.00" yp1="100.00" xp2="100.00" yp2="100.00" sp="0.10"  color="steelblue" />
 	</slide>
 
 	<slide bg="white" fg="rgb(50,50,50)">
