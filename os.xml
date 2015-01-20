@@ -989,12 +989,15 @@ and the voice of the turtle is heard in our land.
 		<image name="100-gmail-logo-2013.png"	width="75" height="75" xp="15" yp="45" />
 		<image name="100-flickr-logo.png"		width="75" height="75" xp="15" yp="35" />
 		<image name="100-speakerdeck.png"		width="60" height="60" xp="15" yp="25" />
+		<image name="blogger.png"		        width="60" height="60" xp="15" yp="15" />
 	
 		<text xp="25" yp="63" sp="4" color="rgb(100,100,100)">github.com/ajstarks</text>
 		<text xp="25" yp="53" sp="4" color="rgb(100,100,100)">@ajstarks</text>
 		<text xp="25" yp="43" sp="4" color="rgb(100,100,100)">ajstarks@gmail.com</text>
 		<text xp="25" yp="33" sp="4" color="rgb(100,100,100)">flickr.com/photos/ajstarks</text>
 		<text xp="25" yp="23" sp="4" color="rgb(100,100,100)">speakerdeck.com/ajstarks</text>
+		<text xp="25" yp="13" sp="4" color="rgb(100,100,100)">mindchunk.blogspot.com</text>
+		
 	</slide>
 
 </deck>
