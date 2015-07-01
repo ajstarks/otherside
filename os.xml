@@ -2,7 +2,7 @@
 	<title>The Other Side of Go</title>
 	<creator>Anthony Starks</creator>
 	<subject>Go, markup, design</subject>
-	<date>2015-01-17</date>
+	<date>2015-06-03</date>
 	<description>This presentation describes the use of Go for programming pictures, a departure from the usual back-end view.</description>
  
 	<slide bg="black" fg="white">
@@ -127,6 +127,31 @@
 	</slide>
 	
 	<slide>
+		<text xp="50" yp="95" sp="3" link="http://ajstarks.org:1958/" align="c">http://ajstarks.org:1958/{thing}/</text>
+		<image xp="20" yp="80" width="128" height="128" color="gray" name="clock.png" caption="clock"/>
+		<image xp="40" yp="80" width="128" height="128" color="gray" name="funnel.png" caption="funnel"/>
+		<image xp="60" yp="80" width="128" height="128" color="gray" name="rotext.png" caption="rotext"/>
+		<image xp="80" yp="80" width="128" height="128" color="gray" name="flower.png" caption="flower"/>
+		
+		<image xp="20" yp="50" width="128" height="128" color="gray" name="rshape.png" caption="rshape"/>
+		<image xp="40" yp="50" width="128" height="128" color="gray" name="cube.png" caption="cube"/>
+		<image xp="60" yp="50" width="128" height="128" color="gray" name="mondrian.png" caption="mondrian"/>
+		<image xp="80" yp="50" width="128" height="128" color="gray" name="lewitt.png" caption="lewitt"/>
+		
+		<image xp="40" yp="20" width="128" height="128" color="gray" name="face.png" caption="face"/>
+		<image xp="60" yp="20" width="128" height="128" color="gray" name="pacman.png" caption="pacman"/>
+	</slide>
+	
+	
+	<slide>
+		<text xp="5" yp="85" sp="3">http://ajstarks.org:1958/pacman/?angle=20</text><image xp="85" yp="85" width="200" height="200" name="pacman20.png"/>
+		<text xp="5" yp="50" sp="3">http://ajstarks.org:1958/pacman/?angle=40</text><image xp="85" yp="50" width="200" height="200" name="pacman40.png"/>	
+		<text xp="5" yp="15" sp="3">http://ajstarks.org:1958/pacman/?angle=70</text><image xp="85" yp="15" width="200" height="200" name="pacman70.png"/>
+	</slide>
+	
+	
+	
+	<slide>
 		<text xp="50" yp="60" sp="6" align="center">Read/Parse/Draw Pattern</text>
 	</slide>
 	
@@ -160,7 +185,7 @@
 
 	<slide>
 	      <text xp="5" yp="90" sp="4">Imports</text>
-	<text xp="5" yp="75" sp="2" font="mono">import (
+	<text xp="5" yp="80" sp="2.5" font="mono">import (
       "encoding/xml"
       "flag"
       "fmt"
@@ -174,7 +199,7 @@
 	
 	  <slide>
 	      <text xp="5" yp="90" sp="4">The main</text>
-	  	<text xp="5" yp="75" sp="2" font="mono">func main() {
+	  	<text xp="5" yp="80" sp="2.5" font="mono">func main() {
       flag.Parse()
       for _, f := range flag.Args() {
           canvas.Start(*width, *height)
@@ -188,13 +213,12 @@
 	<slide>
 	<text xp="5" yp="90" sp="4">Define the input data structures</text>
 	<text xp="5" yp="20" sp="1.6" color="rgb(100,100,100)" file="thing.xml"/>
-	<text xp="5" yp="75" sp="2" font="mono">type Thing struct {
+	<text xp="5" yp="80" sp="2.5" font="mono">type Thing struct {
       Top  int `xml:"top,attr"`
       Left int `xml:"left,attr"`
       Sep  int `xml:"sep,attr"`
       Item []item `xml:"item"`
 }
-
 type item struct {
       Width  int    `xml:"width,attr"`
       Height int    `xml:"height,attr"`
@@ -207,7 +231,7 @@ type item struct {
 	  
 	  <slide>
 	<text xp="5" yp="90" sp="4">Define flags and output destination</text>
-    <text xp="5" yp="75" sp="2" font="mono">var (
+    <text xp="5" yp="80" sp="2.5" font="mono">var (
       width  = flag.Int("w", 1024, "width")
       height = flag.Int("h", 768, "height")
       canvas = svg.New(os.Stdout)
@@ -217,7 +241,7 @@ type item struct {
 	  
 	  <slide>
 	  	<text xp="5" yp="90" sp="4">Read the input</text>
-          <text xp="5" yp="75" sp="2" font="mono">func dothing(location string) {
+          <text xp="5" yp="80" sp="2.5" font="mono">func dothing(location string) {
       f, err := os.Open(location)
       if err != nil {
           fmt.Fprintf(os.Stderr, "%v\n", err)
@@ -232,7 +256,7 @@ type item struct {
 
 	  <slide>
 	  	<text xp="5" yp="90" sp="4">Parse and load the data structures</text>
-	  	<text xp="5" yp="75" sp="2" font="mono">func readthing(r io.Reader) {
+	  	<text xp="5" yp="80" sp="2.5" font="mono">func readthing(r io.Reader) {
       var t Thing
       if err := xml.NewDecoder(r).Decode(&amp;t); err != nil {
           fmt.Fprintf(os.Stderr, "%v\n", err)
@@ -245,17 +269,19 @@ type item struct {
 	  
 	  <slide>
 	  	<text xp="5" yp="90" sp="4">Use the items of "thing" to make the picture</text>
-	  	<text xp="5" yp="75" sp="2" font="mono">func drawthing(t Thing) {
+	  	<text xp="5" yp="80" sp="2.5" font="mono">func drawthing(t Thing) {
       x := t.Left
       y := t.Top
       for _, v := range t.Item {
-          style := fmt.Sprintf("font-size:%dpx;fill:%s", v.Width/2, v.Color)
+          style := fmt.Sprintf("font-size:%dpx;fill:%s", 
+                               v.Width/2, v.Color)
           canvas.Circle(x, y, v.Height/4, "fill:"+v.Color)
-          canvas.Text(x+t.Sep, y, v.Name+":"+v.Text+"/"+v.Color, style)
+          canvas.Text(x+t.Sep, y, 
+                      v.Name+":"+v.Text+"/"+v.Color, style)
           y += v.Height
       }
 }</text>
-	<image xp="20" yp="20" width="622" height="291" name="rpd-small.png"/>
+	<image xp="40" yp="20" width="622" height="291" name="rpd-small.png"/>
 	  </slide>
 
 
@@ -815,59 +841,7 @@ Gate C31C
 		<text xp="50" yp="5"  sp="2" align="center">Poor</text>
 	</slide>
  
-	<slide bg="white" fg="black">
-	   <text xp="20" yp="70" sp="3" wp="50" font="serif" type="block">
-	   A few months ago, I had a look at the brainchild of a few serious heavyweights working at Google.
-	   Their project, the Go programming language, is a static typed, c lookalike, semicolon-less, 
-	   self formatting, package managed, object oriented, easily parallelizable, 
-	   cluster fuck of genius with an unique class inheritance system. It doesn't have one.</text>
-	</slide>
-
-	<slide bg="white" fg="black">
-	  <text xp="20" yp="90" sp="4" color="maroon">The Go Programming Language</text>
-	  <list xp="20" yp="80" sp="3" type="text" color="black">
-	    <li>is a static typed,</li>
-	    <li>c lookalike,</li>
-	    <li>semicolon-less,</li>
-	    <li>self formatting,</li>
-	    <li>package managed,</li>
-	    <li>object oriented,</li>
-	    <li>easily parallelizable,</li>
-	    <li>cluster fuck of genius</li>
-	    <li>with an unique class inheritance system.</li>
-	  </list>
-	  <text xp="20" yp="5" sp="2" align="begin" color="gray" 
-	  link="http://mackross.net/objc/2013/07/24/objective-c-lessons-from-go/">Andrew Mackenzie-Ross, OBJECTIVE-C LESSONS FROM GO</text>
-	</slide>
-
-	<slide bg="black" fg="white">
-	  <text xp="20" yp="90" sp="4">The Go Programming Language</text>
-	  <list xp="20" yp="80" sp="3" type="text">
-	    <li>is a static typed,</li>
-	    <li>c lookalike,</li>
-	    <li>semicolon-less,</li>
-	    <li>self formatting,</li>
-	    <li>package managed,</li>
-	    <li>object oriented,</li>
-	    <li>easily parallelizable,</li>
-	    <li>cluster fuck of genius</li>
-	    <li>with an unique class inheritance system.</li>
-	  </list>
-	  <text xp="20" yp="5" sp="2" align="begin" color="gray" 
-	  link="http://mackross.net/objc/2013/07/24/objective-c-lessons-from-go/">Andrew Mackenzie-Ross, OBJECTIVE-C LESSONS FROM GO</text>
-	</slide>
-	 
-	<slide bg="white" fg="rgb(50,50,50)">
-	  <text xp="5" yp="80" sp="4">The Go Programming Language</text>
-	  <line xp1="5" yp1="90" xp2="90" yp2="90" color="rgb(50,50,50)" sp="0.1"/> 
-	  <text xp="5" yp="60" sp="3" wp="75" type="block"> 
-	   is a static typed, c lookalike, semicolon-less, self formatting,
-	   package managed, object oriented, easily parallelizable,
-	   cluster fuck of genius with an unique class inheritance system</text>
-	   <text xp="5" yp="20" sp="3" color="maroon">It doesn't have one.</text>
-	  <text xp="5" yp="5" sp="2" align="begin" color="gray"
-	  link="http://mackross.net/objc/2013/07/24/objective-c-lessons-from-go/">Andrew Mackenzie-Ross, OBJECTIVE-C LESSONS FROM GO</text>
-	</slide>
+	
 	
 	<slide bg="white" fg="black">
 	   <image xp="95" yp="10" width="75" height="100" name="doc.png"/>
@@ -942,10 +916,12 @@ and the voice of the turtle is heard in our land.
 	<slide>
 		<image xp="25" yp="83" width="422" height="238" name="desert3.jpg"/>
 		<image xp="75" yp="83" width="422" height="238" name="f.jpg"/>
-		<text xp="50" yp="58" align="center" sp="3">gift -contrast 80 -blur 4 rocks.jpg > abstract.jpg</text>
-		<list xp="10" yp="53" sp="1.6" color="rgb(80,80,80)">
+		<text xp="50" yp="60" align="center" sp="3">gift -contrast 80 -blur 4 rocks.jpg > abstract.jpg</text>
+		<list xp="10" yp="55" sp="1.5" color="rgb(80,80,80)">
 			<li>-blur=0: blur value</li>
 			<li>-brightness=-200: brightness value (-100, 100)</li>
+			<li>-colorbalance="": color balance (%red, %green, %blue)</li>
+ 			<li>-colorize="": colorize (hue, saturation, percentage)</li>
 			<li>-contrast=-200: contrast value (-100, 100)</li>
 			<li>-crop="": crop x1,y1,x2,y2</li>
 			<li>-edge=false: edge</li>
@@ -957,7 +933,7 @@ and the voice of the turtle is heard in our land.
 			<li>-hue=-200: hue value (-180, 180)</li>
 			<li>-invert=false: invert</li>
 		</list>
-		<list xp="45" yp="53" sp="1.6" color="rgb(80,80,80)">
+		<list xp="50" yp="55" sp="1.5" color="rgb(80,80,80)">
 			<li>-max=0: local maximum (kernel size)</li>
 			<li>-mean=0: local mean filter (kernel size)</li>
 			<li>-median=0: local median filter (kernel size)</li>
@@ -967,6 +943,7 @@ and the voice of the turtle is heard in our land.
 			<li>-saturation=-200: saturation value (-100, 500)</li>
 			<li>-sepia=-1: sepia percentage (0-100)</li>
 			<li>-sigmoid="": sigmoid contrast (midpoint,factor)</li>
+			<li>-sobel=false: sobel filter</li>
 			<li>-transpose=false: flip horizontally and rotate 90° counter-clockwise</li>
 			<li>-transverse=false:  flips vertically and rotate 90° counter-clockwise</li>
 			<li>-unsharp="": unsharp mask (sigma,amount,threshold)</li>
