@@ -2,7 +2,7 @@
 	<title>The Other Side of Go</title>
 	<creator>Anthony Starks</creator>
 	<subject>Go, markup, design</subject>
-	<date>2015-06-03</date>
+	<date>2015-08-29</date>
 	<description>This presentation describes the use of Go for programming pictures, a departure from the usual back-end view.</description>
  
 	<slide bg="black" fg="white">
@@ -138,8 +138,10 @@
 		<image xp="60" yp="50" width="128" height="128" color="gray" name="mondrian.png" caption="mondrian"/>
 		<image xp="80" yp="50" width="128" height="128" color="gray" name="lewitt.png" caption="lewitt"/>
 		
-		<image xp="40" yp="20" width="128" height="128" color="gray" name="face.png" caption="face"/>
-		<image xp="60" yp="20" width="128" height="128" color="gray" name="pacman.png" caption="pacman"/>
+		<image xp="20" yp="20" width="128" height="128" color="gray" name="face.png" caption="face"/>
+		<image xp="40" yp="20" width="128" height="128" color="gray" name="pacman.png" caption="pacman"/>
+		<image xp="60" yp="20" width="128" height="128" color="gray" name="tux.png" caption="tux"/>
+		<image xp="80" yp="20" width="128" height="128" color="gray" name="concentric.png" caption="concentric"/>
 	</slide>
 	
 	
